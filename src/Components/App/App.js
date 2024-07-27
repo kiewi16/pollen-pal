@@ -1,15 +1,17 @@
 import '../App/App.css'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from '../HomePage/HomePage'
-import Footer from '../Footer/Footer'
+import Header from '../Header/Header'
 import CurrentPollenForecast from '../CurrentPollenForecast/CurrentPollenForecast'
 import FiveDayPollenForecast from '../FiveDayPollenForecast/FiveDayPollenForecast'
+import Footer from '../Footer/Footer'
 import PageNotFound from '../PageNotFound/PageNotFound'
 
 function App() {
 
   return (
     <div className="app-container">
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/CurrentPollenForecast" element={<CurrentPollenForecast />} />
