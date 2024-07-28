@@ -10,7 +10,6 @@ function FiveDayPollenForecast() {
     function getFiveDayPollenForecast() {
         fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
             .then(response => response.json())
-            // .then(data => console.log(data.DailyForecasts))
             .then(data => setFiveDayPollenForecast(data.DailyForecasts))
             .catch(error => setErrorMessage(error.message))
     }
