@@ -1,18 +1,8 @@
-.homepage-wrapper {
-    border: 2px solid orangered;
-    /* display: flex; */
-    /* flex-direction: column; /* Stack children vertically */
-    /* align-items: center; Center-align the contents */
-    gap: 20px; /* Space between the links container and the paragraph */
-    padding: 20px;
-}
-
 .links-container {
-    border: 2px solid purple;
-    display: flex; /* Apply flexbox to the links container */
-    gap: 20px; /* Space between the links */
-    width: 100%; /* Take full width of the parent */
-    justify-content: center; /* Center-align the links */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;    
 }
 
 .current-pollen-forecast-link,
