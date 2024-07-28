@@ -8,7 +8,7 @@ function FiveDayPollenForecast() {
     const [errorMessage, setErrorMessage] = useState(null)
 
     function getFiveDayPollenForecast() {
-        // fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
+        fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
             .then(response => response.json())
             // .then(data => console.log(data.DailyForecasts))
             .then(data => setFiveDayPollenForecast(data.DailyForecasts))
@@ -30,7 +30,7 @@ function FiveDayPollenForecast() {
     return (
         <div className="five-day-pollen-forecast">
             <h2>5-Day Pollen Forecast for Highlands Ranch, Colorado</h2>
-            <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link-in-five-day-pollen-forecast">Today's Pollen Forecast</Link>
+            <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link-in-five-day-pollen-forecast">Current Pollen Forecast</Link>
             {errorMessage && <p>{errorMessage}</p>}
             <div className="five-day-pollen-forecast-cards-wrapper">
                 {fiveDayPollenForecastCards}

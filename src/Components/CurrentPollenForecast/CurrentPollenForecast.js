@@ -18,17 +18,21 @@ function CurrentPollenForecast() {
         getCurrentPollenForecast()
     }, [])
 
-    const currentPollenForecastCards = currentPollenForecastData.map(currentPollenForecast => {
+    const filteredCurrentPollenForecastData = currentPollenForecastData.filter(currentPollenForecast => {
+       return currentPollenForecast.Name !== "UVIndex" && currentPollenForecast.Name !== "AirQuality"
+    })
+
+    const currentPollenForecastCards = filteredCurrentPollenForecastData.map(filterdCurrentPollenForecast => {
         return (
             <CurrentPollenForecastCard
-                currentPollenForecast={currentPollenForecast}
+                currentPollenForecast={filterdCurrentPollenForecast}
             />
         )
     })
 
     return (
         <div className="current-pollen-forecast">
-            <h2>Today's Pollen Forecast for Highlands Ranch, Colorado</h2>
+            <h2>Current Pollen Forecast for Highlands Ranch, Colorado</h2>
             <Link to="/FiveDayPollenForecast" className="five-day-pollen-forecast-link-in-current-pollen-forecast">5-Day Pollen Forecast</Link>
             {errorMessage && <p>{errorMessage}</p>}
             <div className="current-pollen-forecast-cards-wrapper">

@@ -2,13 +2,17 @@ import '../FiveDayPollenForecastCard/FiveDayPollenForecastCard.css'
 
 function FiveDayPollenForecastCard({ fiveDayPollenForecast }) {
 
-    const pElements = fiveDayPollenForecast.AirAndPollen.map(forecast => {
+    const filteredFiveDayPollenForecast = fiveDayPollenForecast.AirAndPollen.filter(forecast => {
+        return forecast.Name !== "UVIndex" && forecast.Name !== "AirQuality"
+    })
+
+    const pElements = filteredFiveDayPollenForecast.map(forecast => {
         return <p className="five-day-pollen-forecast-card-p-element">{forecast.Name}: {forecast.Value} ({forecast.Category})</p>
     })
 
     return (
         <div className="five-day-pollen-forecast-card">
-            <h3>{fiveDayPollenForecast.Date}</h3>
+            <h3>{new Date(fiveDayPollenForecast.Date).toLocaleDateString()}</h3>
             {pElements}
         </div>
     )

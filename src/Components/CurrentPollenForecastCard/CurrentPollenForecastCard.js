@@ -2,7 +2,7 @@ import '../CurrentPollenForecastCard/CurrentPollenForecastCard.css'
 
 function CurrentPollenForecastCard({ currentPollenForecast }) {
     const { Name, Value, Category } = currentPollenForecast
-
+    
     const gradientStyles = {
         Low: 'linear-gradient(to bottom, white, rgb(144, 238, 144)',
         Moderate: 'linear-gradient(to bottom, #FFFFE0, #FFD700',
@@ -21,7 +21,6 @@ function CurrentPollenForecastCard({ currentPollenForecast }) {
             <p>{Category}</p>
         </div>
     )
-
 }
 
 export default CurrentPollenForecastCard
