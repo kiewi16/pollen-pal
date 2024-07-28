@@ -7,7 +7,7 @@ function CurrentPollenForecast() {
     const [currentPollenForecastData, setCurrentPollenForecast] = useState([])
     const [errorMessage, setErrorMessage] = useState(null)
 
-    function getCurrentPollenForecasts() {
+    function getCurrentPollenForecast() {
         fetch('http://dataservice.accuweather.com/forecasts/v1/daily/1day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&details=true')
             .then(response => response.json())
             .then(data => setCurrentPollenForecast(data.DailyForecasts[0].AirAndPollen))
@@ -15,7 +15,7 @@ function CurrentPollenForecast() {
     }
 
     useEffect(() => {
-        getCurrentPollenForecasts()
+        getCurrentPollenForecast()
     }, [])
 
     const currentPollenForecastCards = currentPollenForecastData.map(currentPollenForecast => {
