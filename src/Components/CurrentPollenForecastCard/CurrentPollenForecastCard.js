@@ -1,10 +1,14 @@
-function CurrentPollenForecastCard({ currentPollenForecastData }) {
-    // const { name, value, category } = currentPollenForecastData
-    console.log("currentPollenForecastData in Card", currentPollenForecastData)
-    // console.log("name:", name)
-    // console.log("value:", value)
-    // console.log("category:", category)
-   
+function CurrentPollenForecastCard({ currentPollenForecast }) {
+    const { Name, Value, Category } = currentPollenForecast
+
+    return (
+        <div className="current-pollen-forecast-card">
+            <h3>{Name}</h3>
+            <p>{Value}</p>
+            <p>{Category}</p>
+        </div>
+    )
+
 }
 
 export default CurrentPollenForecastCard

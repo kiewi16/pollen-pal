@@ -18,19 +18,19 @@ function CurrentPollenForecast() {
         getCurrentPollenForecasts()
     }, [])
 
-    // const currentPollenForecastCards = currentPollenForecastData.map(currentPollenForecast => {
-    //     return (
-    //         <CurrentPollenForecastCard
-    //             currentPollenForecast={currentPollenForecast}
-    //         />
-    //     )
-    // })
+    const currentPollenForecastCards = currentPollenForecastData.map(currentPollenForecast => {
+        return (
+            <CurrentPollenForecastCard
+                currentPollenForecast={currentPollenForecast}
+            />
+        )
+    })
 
     return (
         <div className="current-pollen-forecast">
             <h2>Today's Pollen Foreast for Highlands Ranch, Colorado</h2>
             {errorMessage && <p> {errorMessage} </p>}
-            <CurrentPollenForecastCard currentPollenForecastData={currentPollenForecastData}/>
+            {currentPollenForecastCards}
         </div>
     )
 }
