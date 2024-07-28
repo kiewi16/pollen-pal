@@ -1,0 +1,11 @@
+.current-pollen-forecast-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 10px;
+    
+}
+
+.five-day-pollen-forecast-link-in-current-pollen-forecast {
+    font-size: 20px;
+}
