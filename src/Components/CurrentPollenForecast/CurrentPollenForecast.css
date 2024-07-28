@@ -1,0 +1,11 @@
+/* .current-pollen-forecast {
+    border: orange 2px solid;
+} */
+
+.current-pollen-forecast-cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 10px;
+    
+}
