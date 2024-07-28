@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function HomePage() {
     return (
         <main className="homepage-wrapper">
-            <nav class='links-container'>
+            <nav className="links-container">
                 <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link">Today's Pollen Forecast</Link>
                 <Link to="/FiveDayPollenForecast" className="five-day-pollen-forecast-link">5-Day Pollen Forecast</Link>
             </nav>

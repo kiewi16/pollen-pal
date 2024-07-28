@@ -30,7 +30,7 @@ function CurrentPollenForecast() {
         <div className="current-pollen-forecast">
             <h2>Today's Pollen Forecast for Highlands Ranch, Colorado</h2>
             <Link to="/FiveDayPollenForecast" className="five-day-pollen-forecast-link-in-current-pollen-forecast">5-Day Pollen Forecast</Link>
-            {errorMessage && <p> {errorMessage} </p>}
+            {errorMessage && <p>{errorMessage}</p>}
             <div className="current-pollen-forecast-cards-wrapper">
                 {currentPollenForecastCards}
             </div>
