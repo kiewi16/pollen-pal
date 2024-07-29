@@ -56,6 +56,7 @@ function CurrentPollenForecast() {
     }
 
     function handleClearSearchResults() {
+        setSearchValue("")
         setSearchResults("")
         setSearchResultsErrorMessage("")
     }

@@ -26,6 +26,7 @@ function FiveDayPollenForecast() {
         searchResults.map(fiveDayPollenForecast => {
             return (
                 <FiveDayPollenForecastCard
+                    key={fiveDayPollenForecast.Date}
                     fiveDayPollenForecast={fiveDayPollenForecast}
                 />
             )
@@ -33,6 +34,7 @@ function FiveDayPollenForecast() {
         :
         fiveDayPollenForecastData.map(fiveDayPollenForecast => (
             <FiveDayPollenForecastCard
+                key={fiveDayPollenForecast.Date}
                 fiveDayPollenForecast={fiveDayPollenForecast}
             />
         ))
@@ -67,24 +69,26 @@ function FiveDayPollenForecast() {
             <h2>5-Day Pollen Forecast for Highlands Ranch, Colorado</h2>
             <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link-in-five-day-pollen-forecast">Current Pollen Forecast</Link>
             {errorMessage && <p>{errorMessage}</p>}
-            <select name="date" value={allergenSearchValue} onChange={(event) => setAllergenSearchValue(event.target.value)}>
-                <option value="" disabled selected>Select a Category</option>
-                <option value="Grass">Grass</option>
-                <option value="Mold">Mold</option>
-                <option value="Ragweed">Ragweed</option>
-                <option value="Tree">Tree</option>
-            </select>
-            <select name="date" value={categorySearchValue} onChange={(event) => setCategorySearchValue(event.target.value)}>
-                <option value="" disabled selected>Select a Category</option>
-                <option value="Low">Low</option>
-                <option value="Moderate">Moderate</option>
-                <option value="High">High</option>
-                <option value="Very High">Very High</option>
-                <option value="Extreme">Extreme</option>
-            </select>
-            <button className="search-button" onClick={handleSearchClick}>SEARCH</button>
-            <button className="clear-search-results" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
-            {searchResultsErrorMessage && <p>{searchResultsErrorMessage}</p>}
+            <div className="search-container">
+                <select className="drop-down" name="date" value={allergenSearchValue} onChange={(event) => setAllergenSearchValue(event.target.value)}>
+                    <option value="" disabled selected>Select a Category</option>
+                    <option value="Grass">Grass</option>
+                    <option value="Mold">Mold</option>
+                    <option value="Ragweed">Ragweed</option>
+                    <option value="Tree">Tree</option>
+                </select>
+                <select className="drop-down" name="date" value={categorySearchValue} onChange={(event) => setCategorySearchValue(event.target.value)}>
+                    <option value="" disabled selected>Select a Category</option>
+                    <option value="Low">Low</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="High">High</option>
+                    <option value="Very High">Very High</option>
+                    <option value="Extreme">Extreme</option>
+                </select>
+                <button className="search-button" onClick={handleSearchClick}>SEARCH</button>
+                <button className="clear-search-results" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
+                {searchResultsErrorMessage && <p className="search-results-error-message">{searchResultsErrorMessage}</p>}
+            </div>
             <div className="five-day-pollen-forecast-cards-wrapper">
                 {fiveDayPollenForecastCards}
             </div>

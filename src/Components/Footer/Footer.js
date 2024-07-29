@@ -24,7 +24,7 @@ function Footer() {
                 </div>
             </div>
             <div className="data-explaination-section">
-                <p className="data-explaination">Data explaination</p>
+                <p className="data-explaination">Data Explanation</p>
             </div>
         </footer>
     )
