@@ -1,6 +1,6 @@
 import '../FiveDayPollenForecastCard/FiveDayPollenForecastCard.css'
 
-function FiveDayPollenForecastCard({ fiveDayPollenForecast }) {
+function FiveDayPollenForecastCard({ fiveDayPollenForecast, isSearchResult }) {
 
     const filteredFiveDayPollenForecast = fiveDayPollenForecast.AirAndPollen.filter(forecast => {
         return forecast.Name !== "UVIndex" && forecast.Name !== "AirQuality"
