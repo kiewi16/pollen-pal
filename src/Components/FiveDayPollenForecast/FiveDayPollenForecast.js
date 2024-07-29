@@ -25,7 +25,7 @@ function FiveDayPollenForecast() {
             />
         )
     })
-
+    
     return (
         <div className="five-day-pollen-forecast">
             <h2>5-Day Pollen Forecast for Highlands Ranch, Colorado</h2>
