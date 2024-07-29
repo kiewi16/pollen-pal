@@ -9,3 +9,19 @@
 .five-day-pollen-forecast-link-in-current-pollen-forecast {
     font-size: 20px;
 }
+
+.search-container {
+    margin: 10px;
+}
+
+
+.drop-down,
+.search-button,
+.clear-search-results-button {
+    margin: 5px;
+}
+
+.search-results-error-message {
+    color: red;
+    font-size: 20px;
+}

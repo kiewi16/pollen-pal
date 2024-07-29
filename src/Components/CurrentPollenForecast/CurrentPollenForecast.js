@@ -51,7 +51,7 @@ function CurrentPollenForecast() {
             setSearchResultsErrorMessage("")
         }
         else {
-            setSearchResultsErrorMessage("No Matches Available")
+            setSearchResultsErrorMessage("No Matches for Search Criteria")
         }    
     }
 
@@ -65,7 +65,8 @@ function CurrentPollenForecast() {
             <h2>Current Pollen Forecast for Highlands Ranch, Colorado</h2>
             <Link to="/FiveDayPollenForecast" className="five-day-pollen-forecast-link-in-current-pollen-forecast">5-Day Pollen Forecast</Link>
             {errorMessage && <p>{errorMessage}</p>}
-            <select name="date" value={searchValue} onChange={(event) => setSearchValue(event.target.value)}>
+            <div className="search-container">
+            <select className="drop-down" name="date" value={searchValue} onChange={(event) => setSearchValue(event.target.value)}>
                 <option value="" disabled selected>Select a Category</option>
                 <option value="Low">Low</option>
                 <option value="Moderate">Moderate</option>
@@ -74,11 +75,12 @@ function CurrentPollenForecast() {
                 <option value="Extreme">Extreme</option>
             </select>
             <button className="search-button" onClick={handleSearchClick}>SEARCH</button>
-            {searchResultsErrorMessage && <p>{searchResultsErrorMessage}</p>}
+            <button className="clear-search-results-button" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
+            {searchResultsErrorMessage && <p className="search-results-error-message">{searchResultsErrorMessage}</p>}
+            </div>
             <div className="current-pollen-forecast-cards-wrapper">
                 {currentPollenForecastCards}
-            </div>
-            <button className="clear-search-results" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
+            </div>           
         </div>
     )
 }
