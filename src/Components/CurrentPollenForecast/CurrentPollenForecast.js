@@ -2,6 +2,7 @@ import '../CurrentPollenForecast/CurrentPollenForecast.css'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import CurrentPollenForecastCard from '../CurrentPollenForecastCard/CurrentPollenForecastCard'
+const { v4: uuidv4 } = require('uuid')
 
 function CurrentPollenForecast() {
     const [currentPollenForecastData, setCurrentPollenForecast] = useState([])
@@ -33,12 +34,14 @@ function CurrentPollenForecast() {
     const currentPollenForecastCards = searchResults.length > 0 ?
         searchResults.map(currentPollenForecast => (
             <CurrentPollenForecastCard
+                key={uuidv4()}
                 currentPollenForecast={currentPollenForecast}
             />
         ))
         :
         currentPollenForecastData.map(currentPollenForecast => (
             <CurrentPollenForecastCard
+                key={uuidv4()}
                 currentPollenForecast={currentPollenForecast}
             />
         ))

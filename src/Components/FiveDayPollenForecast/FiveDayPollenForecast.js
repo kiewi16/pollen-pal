@@ -2,6 +2,7 @@ import '../FiveDayPollenForecast/FiveDayPollenForecast.css'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import FiveDayPollenForecastCard from '../FiveDayPollenForecastCard/FiveDayPollenForecastCard'
+const { v4: uuidv4 } = require('uuid')
 
 function FiveDayPollenForecast() {
     const [fiveDayPollenForecastData, setFiveDayPollenForecast] = useState([])
@@ -24,17 +25,15 @@ function FiveDayPollenForecast() {
 
     const fiveDayPollenForecastCards = searchResults.length > 0 ?
         searchResults.map(fiveDayPollenForecast => {
-            return (
-                <FiveDayPollenForecastCard
-                    key={fiveDayPollenForecast.Date}
-                    fiveDayPollenForecast={fiveDayPollenForecast}
-                />
-            )
+            <FiveDayPollenForecastCard
+                key={uuidv4()}
+                fiveDayPollenForecast={fiveDayPollenForecast}
+            />
         })
         :
         fiveDayPollenForecastData.map(fiveDayPollenForecast => (
             <FiveDayPollenForecastCard
-                key={fiveDayPollenForecast.Date}
+                key={uuidv4()}
                 fiveDayPollenForecast={fiveDayPollenForecast}
             />
         ))
