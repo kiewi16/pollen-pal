@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 function HomePage() {
     return (
         <main className="homepage-wrapper">
+            <h1>Welcome to Pollen Pal!</h1>
             <nav className="links-container">
                 <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link">Current Pollen Forecast</Link>
                 <img className="sneezing-cat" src={cat} alt="sneezing brown cartoon cat"/>
