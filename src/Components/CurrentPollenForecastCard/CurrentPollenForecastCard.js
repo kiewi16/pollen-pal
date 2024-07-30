@@ -1,7 +1,7 @@
 import '../CurrentPollenForecastCard/CurrentPollenForecastCard.css'
 
 function CurrentPollenForecastCard({ currentPollenForecast }) {
-    const { Name, Value, Category } = currentPollenForecast
+    const { Name, Value, Category, } = currentPollenForecast
     
     const gradientStyles = {
         Low: 'linear-gradient(to bottom, white, rgb(144, 238, 144)',
