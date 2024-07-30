@@ -2,6 +2,7 @@ import '../CurrentPollenForecastCard/CurrentPollenForecastCard.css'
 
 function CurrentPollenForecastCard({ currentPollenForecast }) {
     const { Name, Value, Category, } = currentPollenForecast
+
     
     const gradientStyles = {
         Low: 'linear-gradient(to bottom, white, rgb(144, 238, 144)',
@@ -12,7 +13,7 @@ function CurrentPollenForecastCard({ currentPollenForecast }) {
     }
 
     const gradientStyle = gradientStyles[Category]
-    const cardStyle = gradientStyle ? { backgroundImage: gradientStyle } : {}
+    const cardStyle = gradientStyle ? { background: gradientStyle } : {}
 
     return (
         <div className="current-pollen-forecast-card" style={cardStyle}>
