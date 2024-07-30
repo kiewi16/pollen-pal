@@ -8,7 +8,7 @@ function CurrentPollenForecast() {
     const [errorMessage, setErrorMessage] = useState(null)
     const [searchValue, setSearchValue] = useState("")
     const [searchResults, setSearchResults] = useState("")
-    const [searchResultsErrorMessage, setSearchResultsErrorMessage] = useState("")
+    const [searchResultsMessage, setSearchResultsErrorMessage] = useState("")
 
     function getCurrentPollenForecast() {
         fetch('http://dataservice.accuweather.com/forecasts/v1/daily/1day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&details=true')
@@ -51,14 +51,14 @@ function CurrentPollenForecast() {
             setSearchResultsErrorMessage("")
         }
         else {
-            setSearchResultsErrorMessage("No Matches for Search Criteria")
-        }    
+            setSearchResultsMessage("No Matches Returned")
+        }
     }
 
     function handleClearSearchResults() {
         setSearchValue("")
         setSearchResults("")
-        setSearchResultsErrorMessage("")
+        setSearchResultsMessage("")
     }
 
     return (
@@ -67,21 +67,28 @@ function CurrentPollenForecast() {
             <Link to="/FiveDayPollenForecast" className="five-day-pollen-forecast-link-in-current-pollen-forecast">5-Day Pollen Forecast</Link>
             {errorMessage && <p>{errorMessage}</p>}
             <div className="search-container">
-            <select className="drop-down" name="date" value={searchValue} onChange={(event) => setSearchValue(event.target.value)}>
-                <option value="" disabled selected>Select a Category</option>
-                <option value="Low">Low</option>
-                <option value="Moderate">Moderate</option>
-                <option value="High">High</option>
-                <option value="Very High">Very High</option>
-                <option value="Extreme">Extreme</option>
-            </select>
-            <button className="search-button" onClick={handleSearchClick}>SEARCH</button>
-            <button className="clear-search-results-button" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
-            {searchResultsErrorMessage && <p className="search-results-error-message">{searchResultsErrorMessage}</p>}
+                <label>Search By Pollen/Mold Scale Level:</label>
+                <select className="drop-down" name="date" value={searchValue} onChange={(event) => setSearchValue(event.target.value)}>
+                    <option value="" disabled selected>select scale level</option>
+                    <option value="Low">Low</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="High">High</option>
+                    <option value="Very High">Very High</option>
+                    <option value="Extreme">Extreme</option>
+                </select>
+                <button className="search-button" onClick={handleSearchClick}>SEARCH</button>
+                <button className="clear-search-results-button" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
+                {searchResultsMessage && <p className="search-results-error-message">{searchResultsMessage}</p>}
             </div>
             <div className="current-pollen-forecast-cards-wrapper">
                 {currentPollenForecastCards}
-            </div>           
+            </div>
+            <p className="pollen-scale"><strong>Pollen/Mold Scale</strong></p>
+            <p className="low"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>
+            <p className="moderate"><strong>Moderate:</strong> risk of pollen or mold symptoms is moderate.</p>
+            <p className="high"><strong>High:</strong> risk of pollen or mold symptoms is high. Keep your windows closed.</p>
+            <p className="very-high"><strong>Very High:</strong> risk of pollen or mold symptoms is very high. Avoid outdoor activity in the early hours.</p>
+            <p className="extreme"><strong>Extreme:</strong> risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.</p>
         </div>
     )
 }

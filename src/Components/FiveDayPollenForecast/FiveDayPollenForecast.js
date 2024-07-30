@@ -9,7 +9,7 @@ function FiveDayPollenForecast() {
     const [categorySearchValue, setCategorySearchValue] = useState("")
     const [allergenSearchValue, setAllergenSearchValue] = useState("")
     const [searchResults, setSearchResults] = useState("")
-    const [searchResultsErrorMessage, setSearchResultsErrorMessage] = useState("")
+    const [searchResultsMessage, setSearchResultsMessage] = useState("")
 
     function getFiveDayPollenForecast() {
         fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
@@ -51,9 +51,9 @@ function FiveDayPollenForecast() {
 
         if (matchingResults.length > 0) {
             setSearchResults(matchingResults)
-            setSearchResultsErrorMessage("")
+            setSearchResultsMessage("")
         } else {
-            setSearchResultsErrorMessage("No Matches Available")
+            setSearchResultsMessage("No Matches Returned")
         }
     }
 
@@ -61,7 +61,7 @@ function FiveDayPollenForecast() {
         setCategorySearchValue("")
         setAllergenSearchValue("")
         setSearchResults("")
-        setSearchResultsErrorMessage("")
+        setSearchResultsMessage("")
     }
 
     return (
@@ -70,15 +70,16 @@ function FiveDayPollenForecast() {
             <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link-in-five-day-pollen-forecast">Current Pollen Forecast</Link>
             {errorMessage && <p>{errorMessage}</p>}
             <div className="search-container">
+                <label>Search By Allergen & Pollen/Mold Scale Level:</label>
                 <select className="drop-down" name="date" value={allergenSearchValue} onChange={(event) => setAllergenSearchValue(event.target.value)}>
-                    <option value="" disabled selected>Select a Category</option>
+                    <option value="" disabled selected>select an allergen</option>
                     <option value="Grass">Grass</option>
                     <option value="Mold">Mold</option>
                     <option value="Ragweed">Ragweed</option>
                     <option value="Tree">Tree</option>
                 </select>
                 <select className="drop-down" name="date" value={categorySearchValue} onChange={(event) => setCategorySearchValue(event.target.value)}>
-                    <option value="" disabled selected>Select a Category</option>
+                    <option value="" disabled selected>select scale level</option>
                     <option value="Low">Low</option>
                     <option value="Moderate">Moderate</option>
                     <option value="High">High</option>
@@ -87,11 +88,17 @@ function FiveDayPollenForecast() {
                 </select>
                 <button className="search-button" onClick={handleSearchClick}>SEARCH</button>
                 <button className="clear-search-results" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
-                {searchResultsErrorMessage && <p className="search-results-error-message">{searchResultsErrorMessage}</p>}
+                {searchResultsMessage && <p className="search-results-error-message">{searchResultsMessage}</p>}
             </div>
             <div className="five-day-pollen-forecast-cards-wrapper">
                 {fiveDayPollenForecastCards}
             </div>
+            <p className="pollen-scale"><strong>Pollen/Mold Scale</strong></p>
+            <p className="low"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>
+            <p className="moderate"><strong>Moderate:</strong> risk of pollen or mold symptoms is moderate.</p>
+            <p className="high"><strong>High:</strong> risk of pollen or mold symptoms is high. Keep your windows closed.</p>
+            <p className="very-high"><strong>Very High:</strong> risk of pollen or mold symptoms is very high. Avoid outdoor activity in the early hours.</p>
+            <p className="extreme"><strong>Extreme:</strong> risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.</p>
         </div>
     )
 }
