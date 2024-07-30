@@ -18,9 +18,9 @@ describe('Home Page Tests', () => {
     cy.get('h1').should('contain', 'Welcome to Pollen Pal!')
     cy.get('.current-pollen-forecast-link').should('contain', 'Current Pollen Forecast')
     cy.get('.five-day-pollen-forecast-link').should('contain', '5-Day Pollen Forecast')
-    cy.get('.sneezing-cat').should('exist')
-    cy.get('.homepage-wrapper > p').should('exist')
-    cy.get('.footer').should('exist')
+    cy.get('.sneezing-cat').should('be.visible')
+    cy.get('.homepage-wrapper > p').should('be.visible')
+    cy.get('.footer').should('be.visible')
   })
 
   it('should route the user to the Current Pollen Forecast page when the Current Pollen Forecast link is clicked', () => {
