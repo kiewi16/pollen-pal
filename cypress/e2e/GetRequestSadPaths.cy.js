@@ -1,5 +1,5 @@
 describe('Get Request Sad Paths', () => {
-    it.only('should display a message to the user if the network request for current pollen forecast data is unsuccessful', () => {
+    it('should display a message to the user if the network request for current pollen forecast data is unsuccessful', () => {
         cy.intercept('GET', 'http://dataservice.accuweather.com/forecasts/v1/daily/1day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&details=true', {
             statusCode: 500,
         })

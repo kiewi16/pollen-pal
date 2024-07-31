@@ -7,7 +7,7 @@ const { v4: uuidv4 } = require('uuid')
 
 function FiveDayPollenForecast() {
     const [fiveDayPollenForecastData, setFiveDayPollenForecast] = useState([])
-    const [errorMessage, setErrorMessage] = useState(null)
+    const [errorMessage, setErrorMessage] = useState(false)
     const [searchStatus, setSearchStatus] = useState(false)
     const [matchingResults, setMatchingResults] = useState(false)
     const [scaleSearchValue, setScaleSearchValue] = useState("")
@@ -15,14 +15,26 @@ function FiveDayPollenForecast() {
     const [searchResults, setSearchResults] = useState([])
     const [searchResultsMessage, setSearchResultsMessage] = useState("")
 
+    // function getFiveDayPollenForecast() {
+    //     fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
+    //         .then(response => response.json())
+    //         .then(data => setFiveDayPollenForecast(data.DailyForecasts))
+    //         .catch(error => {
+    //             console.error("Error fetching data", error)
+    //             setErrorMessage("We've encountered an unexpected error and were unable to get the pollen forecast for Highlands Ranch, CO. Please try again later.")
+    //         })
+    // }
+
     function getFiveDayPollenForecast() {
         fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
-            .then(response => response.json())
-            .then(data => setFiveDayPollenForecast(data.DailyForecasts))
-            .catch(error => {
-                console.error("Error fetching data", error)
-                setErrorMessage("We've encountered an unexpected error and were unable to get the 5-day pollen forecast for Highlands Ranch, CO. Please try again later.")
+            .then(response => {
+                if(!response.ok) {
+                    throw new Error("We've encountered an unexpected error and were unable to get the pollen forecast for Highlands Ranch, CO. Please try again later.")
+                }
+                return response.json()
             })
+            .then(data => setFiveDayPollenForecast(data.DailyForecasts))
+            .catch(error => setErrorMessage(true))
     }
 
     useEffect(() => {
@@ -70,7 +82,7 @@ function FiveDayPollenForecast() {
         <div className="five-day-pollen-forecast">
             <h2>5-Day Pollen Forecast for Highlands Ranch, Colorado</h2>
             <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link-in-five-day-pollen-forecast">Current Pollen Forecast</Link>
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {errorMessage && <p className="error-message">We've encountered an unexpected error and were unable to get the 5-day pollen forecast for Highlands Ranch, CO. Please try again later.</p>}
             <div className="search-container">
                 <label><strong>Search By Allergen & Pollen/Mold Scale Level:</strong></label>
                 <select className="allergen-drop-down" name="allergen" value={allergenSearchValue} onChange={(event) => setAllergenSearchValue(event.target.value)}>

@@ -6,7 +6,7 @@ const { v4: uuidv4 } = require('uuid')
 
 function CurrentPollenForecast() {
     const [currentPollenForecastData, setCurrentPollenForecast] = useState([])
-    const [errorMessage, setErrorMessage] = useState(null)
+    const [errorMessage, setErrorMessage] = useState(false)
     const [searchValue, setSearchValue] = useState("")
     const [searchResults, setSearchResults] = useState("")
     const [searchResultsMessage, setSearchResultsMessage] = useState("")
@@ -32,8 +32,8 @@ function CurrentPollenForecast() {
             })
             .then(data => filterCurrentPollenForecastData(data.DailyForecasts[0].AirAndPollen))
             .then(filteredData => setCurrentPollenForecast(filteredData))
-            .catch(error => setErrorMessage(error.message))
-        }
+            .catch(error => setErrorMessage(true))
+    }
 
     useEffect(() => {
         getCurrentPollenForecast()
@@ -84,7 +84,7 @@ function CurrentPollenForecast() {
         <div className="current-pollen-forecast">
             <h2>Current Pollen Forecast for Highlands Ranch, Colorado</h2>
             <Link to="/FiveDayPollenForecast" className="five-day-pollen-forecast-link-in-current-pollen-forecast">5-Day Pollen Forecast</Link>
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {errorMessage && <p className="error-message">We've encountered an unexpected error and were unable to get the current pollen forecast for Highlands Ranch, CO. Please try again later.</p>}
             <div className="search-container">
                 <label>Search By Pollen/Mold Scale Level:</label>
                 <select className="drop-down" name="date" value={searchValue} onChange={(event) => setSearchValue(event.target.value)}>
