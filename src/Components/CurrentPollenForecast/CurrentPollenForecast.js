@@ -88,11 +88,11 @@ function CurrentPollenForecast() {
                 {currentPollenForecastCards}
             </div>
             <p className="pollen-scale"><strong>Pollen/Mold Scale</strong></p>
-            <p className="low"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>
-            <p className="moderate"><strong>Moderate:</strong> risk of pollen or mold symptoms is moderate.</p>
-            <p className="high"><strong>High:</strong> risk of pollen or mold symptoms is high. Keep your windows closed.</p>
-            <p className="very-high"><strong>Very High:</strong> risk of pollen or mold symptoms is very high. Avoid outdoor activity in the early hours.</p>
-            <p className="extreme"><strong>Extreme:</strong> risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.</p>
+            <p className="category-scale"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>
+            <p className="category-scale"><strong>Moderate:</strong> risk of pollen or mold symptoms is moderate.</p>
+            <p className="category-scale"><strong>High:</strong> risk of pollen or mold symptoms is high. Keep your windows closed.</p>
+            <p className="category-scale"><strong>Very High:</strong> risk of pollen or mold symptoms is very high. Avoid outdoor activity in the early hours.</p>
+            <p className="category-scale"><strong>Extreme:</strong> risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.</p>
         </div>
     )
 }

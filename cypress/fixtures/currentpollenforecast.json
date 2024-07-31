@@ -1,0 +1,350 @@
+{
+    "Headline": {
+        "EffectiveDate": "2024-07-30T08:00:00-06:00",
+        "EffectiveEpochDate": 1722348000,
+        "Severity": 3,
+        "Text": "The heat wave will continue through Thursday",
+        "Category": "heat",
+        "EndDate": "2024-08-01T20:00:00-06:00",
+        "EndEpochDate": 1722564000,
+        "MobileLink": "http://www.accuweather.com/en/us/highlands-ranch-co/80126/daily-weather-forecast/337466?lang=en-us",
+        "Link": "http://www.accuweather.com/en/us/highlands-ranch-co/80126/daily-weather-forecast/337466?lang=en-us"
+    },
+    "DailyForecasts": [
+        {
+            "Date": "2024-07-30T07:00:00-06:00",
+            "EpochDate": 1722344400,
+            "Sun": {
+                "Rise": "2024-07-30T05:58:00-06:00",
+                "EpochRise": 1722340680,
+                "Set": "2024-07-30T20:14:00-06:00",
+                "EpochSet": 1722392040
+            },
+            "Moon": {
+                "Rise": "2024-07-30T01:05:00-06:00",
+                "EpochRise": 1722323100,
+                "Set": "2024-07-30T16:52:00-06:00",
+                "EpochSet": 1722379920,
+                "Phase": "WaningCrescent",
+                "Age": 25
+            },
+            "Temperature": {
+                "Minimum": {
+                    "Value": 58.0,
+                    "Unit": "F",
+                    "UnitType": 18
+                },
+                "Maximum": {
+                    "Value": 99.0,
+                    "Unit": "F",
+                    "UnitType": 18
+                }
+            },
+            "RealFeelTemperature": {
+                "Minimum": {
+                    "Value": 57.0,
+                    "Unit": "F",
+                    "UnitType": 18,
+                    "Phrase": "Cool"
+                },
+                "Maximum": {
+                    "Value": 103.0,
+                    "Unit": "F",
+                    "UnitType": 18,
+                    "Phrase": "Very Hot"
+                }
+            },
+            "RealFeelTemperatureShade": {
+                "Minimum": {
+                    "Value": 57.0,
+                    "Unit": "F",
+                    "UnitType": 18,
+                    "Phrase": "Cool"
+                },
+                "Maximum": {
+                    "Value": 97.0,
+                    "Unit": "F",
+                    "UnitType": 18,
+                    "Phrase": "Hot"
+                }
+            },
+            "HoursOfSun": 11.8,
+            "DegreeDaySummary": {
+                "Heating": {
+                    "Value": 0.0,
+                    "Unit": "F",
+                    "UnitType": 18
+                },
+                "Cooling": {
+                    "Value": 14.0,
+                    "Unit": "F",
+                    "UnitType": 18
+                }
+            },
+            "AirAndPollen": [
+                {
+                    "Name": "AirQuality",
+                    "Value": 83,
+                    "Category": "Moderate",
+                    "CategoryValue": 2,
+                    "Type": "Ozone"
+                },
+                {
+                    "Name": "Grass",
+                    "Value": 110,
+                    "Category": "High",
+                    "CategoryValue": 3
+                },
+                {
+                    "Name": "Mold",
+                    "Value": 0,
+                    "Category": "Low",
+                    "CategoryValue": 1
+                },
+                {
+                    "Name": "Ragweed",
+                    "Value": 275,
+                    "Category": "High",
+                    "CategoryValue": 3
+                },
+                {
+                    "Name": "Tree",
+                    "Value": 0,
+                    "Category": "Low",
+                    "CategoryValue": 1
+                },
+                {
+                    "Name": "UVIndex",
+                    "Value": 11,
+                    "Category": "Extreme",
+                    "CategoryValue": 5
+                }
+            ],
+            "Day": {
+                "Icon": 2,
+                "IconPhrase": "Mostly sunny",
+                "HasPrecipitation": false,
+                "ShortPhrase": "Mostly sunny and hot",
+                "LongPhrase": "Mostly sunny and hot; caution advised if outside for extended periods of time",
+                "PrecipitationProbability": 1,
+                "ThunderstormProbability": 0,
+                "RainProbability": 1,
+                "SnowProbability": 0,
+                "IceProbability": 0,
+                "Wind": {
+                    "Speed": {
+                        "Value": 6.9,
+                        "Unit": "mi/h",
+                        "UnitType": 9
+                    },
+                    "Direction": {
+                        "Degrees": 256,
+                        "Localized": "WSW",
+                        "English": "WSW"
+                    }
+                },
+                "WindGust": {
+                    "Speed": {
+                        "Value": 13.8,
+                        "Unit": "mi/h",
+                        "UnitType": 9
+                    },
+                    "Direction": {
+                        "Degrees": 208,
+                        "Localized": "SSW",
+                        "English": "SSW"
+                    }
+                },
+                "TotalLiquid": {
+                    "Value": 0.0,
+                    "Unit": "in",
+                    "UnitType": 1
+                },
+                "Rain": {
+                    "Value": 0.0,
+                    "Unit": "in",
+                    "UnitType": 1
+                },
+                "Snow": {
+                    "Value": 0.0,
+                    "Unit": "in",
+                    "UnitType": 1
+                },
+                "Ice": {
+                    "Value": 0.0,
+                    "Unit": "in",
+                    "UnitType": 1
+                },
+                "HoursOfPrecipitation": 0.0,
+                "HoursOfRain": 0.0,
+                "HoursOfSnow": 0.0,
+                "HoursOfIce": 0.0,
+                "CloudCover": 16,
+                "Evapotranspiration": {
+                    "Value": 0.26,
+                    "Unit": "in",
+                    "UnitType": 1
+                },
+                "SolarIrradiance": {
+                    "Value": 8596.8,
+                    "Unit": "W/m²",
+                    "UnitType": 33
+                },
+                "RelativeHumidity": {
+                    "Minimum": 5,
+                    "Maximum": 11,
+                    "Average": 7
+                },
+                "WetBulbTemperature": {
+                    "Minimum": {
+                        "Value": 54.0,
+                        "Unit": "F",
+                        "UnitType": 18
+                    },
+                    "Maximum": {
+                        "Value": 60.0,
+                        "Unit": "F",
+                        "UnitType": 18
+                    },
+                    "Average": {
+                        "Value": 58.0,
+                        "Unit": "F",
+                        "UnitType": 18
+                    }
+                },
+                "WetBulbGlobeTemperature": {
+                    "Minimum": {
+                        "Value": 68.0,
+                        "Unit": "F",
+                        "UnitType": 18
+                    },
+                    "Maximum": {
+                        "Value": 78.0,
+                        "Unit": "F",
+                        "UnitType": 18
+                    },
+                    "Average": {
+                        "Value": 74.0,
+                        "Unit": "F",
+                        "UnitType": 18
+                    }
+                }
+            },
+            "Night": {
+                "Icon": 35,
+                "IconPhrase": "Partly cloudy",
+                "HasPrecipitation": false,
+                "ShortPhrase": "Partly cloudy",
+                "LongPhrase": "Partly cloudy",
+                "PrecipitationProbability": 1,
+                "ThunderstormProbability": 0,
+                "RainProbability": 1,
+                "SnowProbability": 0,
+                "IceProbability": 0,
+                "Wind": {
+                    "Speed": {
+                        "Value": 5.8,
+                        "Unit": "mi/h",
+                        "UnitType": 9
+                    },
+                    "Direction": {
+                        "Degrees": 244,
+                        "Localized": "WSW",
+                        "English": "WSW"
+                    }
+                },
+                "WindGust": {
+                    "Speed": {
+                        "Value": 11.5,
+                        "Unit": "mi/h",
+                        "UnitType": 9
+                    },
+                    "Direction": {
+                        "Degrees": 212,
+                        "Localized": "SSW",
+                        "English": "SSW"
+                    }
+                },
+                "TotalLiquid": {
+                    "Value": 0.0,
+                    "Unit": "in",
+                    "UnitType": 1
+                },
+                "Rain": {
+                    "Value": 0.0,
+                    "Unit": "in",
+                    "UnitType": 1
+                },
+                "Snow": {
+                    "Value": 0.0,
+                    "Unit": "in",
+                    "UnitType": 1
+                },
+                "Ice": {
+                    "Value": 0.0,
+                    "Unit": "in",
+                    "UnitType": 1
+                },
+                "HoursOfPrecipitation": 0.0,
+                "HoursOfRain": 0.0,
+                "HoursOfSnow": 0.0,
+                "HoursOfIce": 0.0,
+                "CloudCover": 26,
+                "Evapotranspiration": {
+                    "Value": 0.05,
+                    "Unit": "in",
+                    "UnitType": 1
+                },
+                "SolarIrradiance": {
+                    "Value": 236.1,
+                    "Unit": "W/m²",
+                    "UnitType": 33
+                },
+                "RelativeHumidity": {
+                    "Minimum": 12,
+                    "Maximum": 35,
+                    "Average": 27
+                },
+                "WetBulbTemperature": {
+                    "Minimum": {
+                        "Value": 46.0,
+                        "Unit": "F",
+                        "UnitType": 18
+                    },
+                    "Maximum": {
+                        "Value": 58.0,
+                        "Unit": "F",
+                        "UnitType": 18
+                    },
+                    "Average": {
+                        "Value": 51.0,
+                        "Unit": "F",
+                        "UnitType": 18
+                    }
+                },
+                "WetBulbGlobeTemperature": {
+                    "Minimum": {
+                        "Value": 54.0,
+                        "Unit": "F",
+                        "UnitType": 18
+                    },
+                    "Maximum": {
+                        "Value": 73.0,
+                        "Unit": "F",
+                        "UnitType": 18
+                    },
+                    "Average": {
+                        "Value": 62.0,
+                        "Unit": "F",
+                        "UnitType": 18
+                    }
+                }
+            },
+            "Sources": [
+                "AccuWeather"
+            ],
+            "MobileLink": "http://www.accuweather.com/en/us/highlands-ranch-co/80126/daily-weather-forecast/337466?day=1&lang=en-us",
+            "Link": "http://www.accuweather.com/en/us/highlands-ranch-co/80126/daily-weather-forecast/337466?day=1&lang=en-us"
+        }
+    ]
+}

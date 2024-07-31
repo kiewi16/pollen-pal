@@ -8,7 +8,7 @@ function Footer() {
         <footer className="footer">
             <div className="accuweather-section">
                 <p>AccuWeather APIs</p>
-                <a href="http://www.accuweather.com">
+                <a href="https://developer.accuweather.com">
                     <img className="accuweather" src={accuweather} alt="AccuWeather logo"/>
                 </a>
             </div>
