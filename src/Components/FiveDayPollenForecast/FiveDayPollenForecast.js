@@ -19,7 +19,10 @@ function FiveDayPollenForecast() {
         fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
             .then(response => response.json())
             .then(data => setFiveDayPollenForecast(data.DailyForecasts))
-            .catch(error => setErrorMessage(error.message))
+            .catch(error => {
+                console.error("Error fetching data", error)
+                setErrorMessage("We've encountered an unexpected error and were unable to get the 5-day pollen forecast for Highlands Ranch, CO. Please try again later.")
+            })
     }
 
     useEffect(() => {
@@ -67,7 +70,7 @@ function FiveDayPollenForecast() {
         <div className="five-day-pollen-forecast">
             <h2>5-Day Pollen Forecast for Highlands Ranch, Colorado</h2>
             <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link-in-five-day-pollen-forecast">Current Pollen Forecast</Link>
-            {errorMessage && <p>{errorMessage}</p>}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
             <div className="search-container">
                 <label><strong>Search By Allergen & Pollen/Mold Scale Level:</strong></label>
                 <select className="allergen-drop-down" name="allergen" value={allergenSearchValue} onChange={(event) => setAllergenSearchValue(event.target.value)}>
