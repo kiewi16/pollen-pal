@@ -14,7 +14,8 @@
     margin: 10px; 
 }
 
-.drop-down,
+.allergen-drop-down,
+.scale-level-drop-down, 
 .search-button,
 .clear-search-results-button {
     margin: 5px;
@@ -22,7 +23,7 @@
 
 .search-results-error-message {
     color: red;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .pollen-scale {

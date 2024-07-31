@@ -2,50 +2,57 @@ import '../FiveDayPollenForecast/FiveDayPollenForecast.css'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import FiveDayPollenForecastCard from '../FiveDayPollenForecastCard/FiveDayPollenForecastCard'
+import SearchResultCard from '../SearchResultCard/SearchResultCard'
 const { v4: uuidv4 } = require('uuid')
 
 function FiveDayPollenForecast() {
     const [fiveDayPollenForecastData, setFiveDayPollenForecast] = useState([])
-    const [errorMessage, setErrorMessage] = useState(null)
-    const [categorySearchValue, setCategorySearchValue] = useState("")
+    const [errorMessage, setErrorMessage] = useState(false)
+    const [searchStatus, setSearchStatus] = useState(false)
+    const [matchingResults, setMatchingResults] = useState(false)
+    const [scaleSearchValue, setScaleSearchValue] = useState("")
     const [allergenSearchValue, setAllergenSearchValue] = useState("")
-    const [searchResults, setSearchResults] = useState("")
+    const [searchResults, setSearchResults] = useState([])
     const [searchResultsMessage, setSearchResultsMessage] = useState("")
 
-    console.log('searchResults:', searchResults)
-    console.log('fiveDayPollenForecastData:', fiveDayPollenForecastData)
+    // function getFiveDayPollenForecast() {
+    //     fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
+    //         .then(response => response.json())
+    //         .then(data => setFiveDayPollenForecast(data.DailyForecasts))
+    //         .catch(error => {
+    //             console.error("Error fetching data", error)
+    //             setErrorMessage("We've encountered an unexpected error and were unable to get the pollen forecast for Highlands Ranch, CO. Please try again later.")
+    //         })
+    // }
 
     function getFiveDayPollenForecast() {
         fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
-            .then(response => response.json())
+            .then(response => {
+                if(!response.ok) {
+                    throw new Error("We've encountered an unexpected error and were unable to get the pollen forecast for Highlands Ranch, CO. Please try again later.")
+                }
+                return response.json()
+            })
             .then(data => setFiveDayPollenForecast(data.DailyForecasts))
-            .catch(error => setErrorMessage(error.message))
+            .catch(error => setErrorMessage(true))
     }
 
     useEffect(() => {
         getFiveDayPollenForecast()
     }, [])
 
-    const fiveDayPollenForecastCards = searchResults.length > 0 ?
-        searchResults.map(fiveDayPollenForecast => {
-            <FiveDayPollenForecastCard
-                key={uuidv4()}
-                fiveDayPollenForecast={fiveDayPollenForecast}
-            />
-        })
-        :
-        fiveDayPollenForecastData.map(fiveDayPollenForecast => (
-            <FiveDayPollenForecastCard
-                key={uuidv4()}
-                fiveDayPollenForecast={fiveDayPollenForecast}
-            />
-        ))
+    const fiveDayPollenForecastCards = fiveDayPollenForecastData.map(fiveDayPollenForecast => (
+        <FiveDayPollenForecastCard
+            key={uuidv4()}
+            fiveDayPollenForecast={fiveDayPollenForecast}
+        />
+    ))
 
     function handleSearchClick() {
         let matchingResults = []
         fiveDayPollenForecastData.forEach(fiveDayPollenForecast => {
             fiveDayPollenForecast.AirAndPollen.forEach(pollenData => {
-                if (pollenData.Name === allergenSearchValue && pollenData.Category === categorySearchValue) {
+                if (pollenData.Name === allergenSearchValue && pollenData.Category === scaleSearchValue) {
                     matchingResults.push(fiveDayPollenForecast)
                 }
             })
@@ -53,16 +60,21 @@ function FiveDayPollenForecast() {
 
         if (matchingResults.length > 0) {
             setSearchResults(matchingResults)
+            setMatchingResults(true)
+            setSearchStatus(true)
             setSearchResultsMessage("")
         } else {
+            setSearchStatus(true)
+            setMatchingResults(false)
             setSearchResultsMessage("No Matches Returned")
         }
     }
 
     function handleClearSearchResults() {
-        setCategorySearchValue("")
         setAllergenSearchValue("")
-        setSearchResults("")
+        setScaleSearchValue("")
+        setSearchStatus(false)
+        setSearchResults([])
         setSearchResultsMessage("")
     }
 
@@ -70,9 +82,9 @@ function FiveDayPollenForecast() {
         <div className="five-day-pollen-forecast">
             <h2>5-Day Pollen Forecast for Highlands Ranch, Colorado</h2>
             <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link-in-five-day-pollen-forecast">Current Pollen Forecast</Link>
-            {errorMessage && <p>{errorMessage}</p>}
+            {errorMessage && <p className="error-message">We've encountered an unexpected error and were unable to get the 5-day pollen forecast for Highlands Ranch, CO. Please try again later.</p>}
             <div className="search-container">
-                <label>Search By Allergen & Pollen/Mold Scale Level:</label>
+                <label><strong>Search By Allergen & Pollen/Mold Scale Level:</strong></label>
                 <select className="allergen-drop-down" name="allergen" value={allergenSearchValue} onChange={(event) => setAllergenSearchValue(event.target.value)}>
                     <option value="" disabled selected>select an allergen</option>
                     <option value="Grass">Grass</option>
@@ -80,7 +92,7 @@ function FiveDayPollenForecast() {
                     <option value="Ragweed">Ragweed</option>
                     <option value="Tree">Tree</option>
                 </select>
-                <select className="scale-level-drop-down" name="category" value={categorySearchValue} onChange={(event) => setCategorySearchValue(event.target.value)}>
+                <select className="scale-level-drop-down" name="scale-value" value={scaleSearchValue} onChange={(event) => setScaleSearchValue(event.target.value)}>
                     <option value="" disabled selected>select scale level</option>
                     <option value="Low">Low</option>
                     <option value="Moderate">Moderate</option>
@@ -90,10 +102,20 @@ function FiveDayPollenForecast() {
                 </select>
                 <button className="search-button" onClick={handleSearchClick}>SEARCH</button>
                 <button className="clear-search-results-button" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
-                {searchResultsMessage && <p className="search-results-error-message">{searchResultsMessage}</p>}
             </div>
+            {searchStatus && !matchingResults ? <p className="search-results-error-message">{searchResultsMessage}</p> : null} 
+            {searchStatus && matchingResults ? <h3> HERE ARE YOUR SEARCH RESULTS:</h3> : null}
             <div className="five-day-pollen-forecast-cards-wrapper">
-                {fiveDayPollenForecastCards}
+                {!searchStatus ? fiveDayPollenForecastCards : null}   
+                {searchStatus && matchingResults ? searchResults.map(searchResult => {
+                        return (
+                            <SearchResultCard
+                                key={uuidv4()}
+                                searchResult={searchResult}
+                            />
+                        )
+                    }) : null
+                }
             </div>
             <p className="pollen-scale"><strong>Pollen/Mold Scale</strong></p>
             <p className="category-scale"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>

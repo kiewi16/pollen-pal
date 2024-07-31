@@ -14,11 +14,12 @@ describe('5-Day Pollen Forecast Page Tests', () => {
         })
         cy.visit('http://localhost:3000/FiveDayPollenForecast')
     })
-    it('should land on the 5-day Pollen Forecast page that has a title, a link to the Current Pollen Forecast, a label for the drop downs, two drop downs, a search button, and a clear search button', () => {
+    it('should land on the 5-day Pollen Forecast page that has a title, a link to the Current Pollen Forecast, a label for the drop down inputs, two drop down inputs, a search button, and a clear search button', () => {
         cy.get('h2').should('contain', '5-Day Pollen Forecast for Highlands Ranch, Colorado')
         cy.get('.current-pollen-forecast-link-in-five-day-pollen-forecast').should('be.visible')
         cy.get('label').should('contain', 'Search By Allergen & Pollen/Mold Scale Level')
-        cy.get('.drop-down').should('have.length', 2)
+        cy.get('.allergen-drop-down').should('be.visible')
+        cy.get('.clear-search-results-button').should('be.visible')
         cy.get('.search-button').should('contain', 'SEARCH')
         cy.get('.clear-search-results-button').should('contain', 'CLEAR SEARCH RESULTS')
     })
@@ -42,36 +43,42 @@ describe('5-Day Pollen Forecast Page Tests', () => {
         cy.get('.five-day-pollen-forecast .category-scale').last().should('contain', 'Extreme: risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.')       
     })
 
-    it.only('should select an allergen and a pollen/mold scale level in the drop downs and hit submit, returning any pollen forecasts that match the search criteria', () => {
+    it('should select an allergen and a pollen/mold scale level in the drop down inputs and hit submit, returning a message and any pollen forecasts that match the search criteria', () => {
         cy.get('.allergen-drop-down').select('Grass')
         cy.get('.scale-level-drop-down').select('High')
         cy.get('.search-button').click()
-        // cy.get('.five-day-pollen-forecast-cards-wrapper .five-day-pollen-forecast-card h3').first().should('contain', '7/30/2024')
-        // cy.get('.five-day-pollen-forecast-cards-wrapper').should('contain', 'Grass: 110 (High)')
-        // cy.get('.five-day-pollen-forecast-cards-wrapper .five-day-pollen-forecast-card h3').last().should('contain', '8/3/2024')
-        // cy.get(':nth-child(5) > :nth-child(2)').should('contain', 'Grass: 30 (High)')    
+        cy.get('.five-day-pollen-forecast > :nth-child(4)').should('contain', 'HERE ARE YOUR SEARCH RESULTS:')
+        cy.get('.five-day-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card').should('have.length', 5)
+        cy.get('.five-day-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card h3').first().should('contain', '7/30/2024')
+        cy.get('.five-day-pollen-forecast-cards-wrapper .search-result-forecast-card-p-element').first().should('contain', 'Grass: 110 (High)')
+        cy.get('.five-day-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card h3').last().should('contain', '8/3/2024')
+        cy.get('.five-day-pollen-forecast-cards-wrapper .search-result-forecast-card-p-element').last().should('contain', 'Tree: 0 (Low)') 
     })
 
-    // it('should clear the search results when the clear search button is clicked and display four current pollen cards', () => {
-    //     cy.get('.drop-down').select('Low')
-    //     cy.get('.search-button').click()
-    //     cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card').should('have.length', 2)
-    //     cy.get('.clear-search-results-button').click()    
-    //     cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card').should('have.length', 4)
-    // })
+    it('should clear the search results when the clear search button is clicked and display five pollen forecast cards', () => {
+        cy.get('.allergen-drop-down').select('Grass')
+        cy.get('.scale-level-drop-down').select('High')
+        cy.get('.search-button').click()
+        cy.get('.five-day-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card').should('have.length', 5)
+        cy.get('.clear-search-results-button').click()    
+        cy.get('.five-day-pollen-forecast-cards-wrapper .five-day-pollen-forecast-card').should('have.length', 5)
+    })
 
     it('should select an allergen and a pollen/mold scale level in the drop down and hit submit, returning a message if no pollen forecasts meet the search criteria', () => {
         cy.get('.allergen-drop-down').select('Ragweed')
         cy.get('.scale-level-drop-down').select('Moderate')
         cy.get('.search-button').click()
-        cy.get('.search-results-error-message').should('contain', 'No Matches Returned')    
+        cy.get('.search-results-error-message').should('contain', 'No Matches Returned')
+        cy.get('.five-day-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card').should('have.length', 0)   
+        cy.get('.five-day-pollen-forecast-cards-wrapper .five-day-pollen-forecast-card').should('have.length', 0) 
     })
 
     it('should clear the No Matches Returned message when the clear search results button is clicked', () => {
         cy.get('.allergen-drop-down').select('Ragweed')
         cy.get('.scale-level-drop-down').select('Moderate')
         cy.get('.search-button').click()
-        cy.get('.search-results-error-message').should('contain', 'No Matches Returned')    
+        cy.get('.search-results-error-message').should('contain', 'No Matches Returned')   
+        cy.get('.five-day-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card').should('have.length', 0)    
         cy.get('.clear-search-results-button').click()
         cy.get('.search-results-error-message').should('not.exist') 
         cy.get('.five-day-pollen-forecast .category-scale').should('have.length', 5)
