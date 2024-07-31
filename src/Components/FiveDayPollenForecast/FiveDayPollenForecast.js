@@ -69,7 +69,7 @@ function FiveDayPollenForecast() {
             <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link-in-five-day-pollen-forecast">Current Pollen Forecast</Link>
             {errorMessage && <p>{errorMessage}</p>}
             <div className="search-container">
-                <label>Search By Allergen & Pollen/Mold Scale Level:</label>
+                <label><strong>Search By Allergen & Pollen/Mold Scale Level:</strong></label>
                 <select className="allergen-drop-down" name="allergen" value={allergenSearchValue} onChange={(event) => setAllergenSearchValue(event.target.value)}>
                     <option value="" disabled selected>select an allergen</option>
                     <option value="Grass">Grass</option>
@@ -88,9 +88,10 @@ function FiveDayPollenForecast() {
                 <button className="search-button" onClick={handleSearchClick}>SEARCH</button>
                 <button className="clear-search-results-button" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
             </div>
+            {searchStatus && !matchingResults ? <p className="search-results-error-message">{searchResultsMessage}</p> : null} 
+            {searchStatus && matchingResults ? <h3> HERE ARE YOUR SEARCH RESULTS:</h3> : null}
             <div className="five-day-pollen-forecast-cards-wrapper">
-                {!searchStatus ? fiveDayPollenForecastCards : null}
-                {searchStatus && !matchingResults ? <p className="search-results-error-message">{searchResultsMessage}</p> : null}
+                {!searchStatus ? fiveDayPollenForecastCards : null}   
                 {searchStatus && matchingResults ? searchResults.map(searchResult => {
                         return (
                             <SearchResultCard

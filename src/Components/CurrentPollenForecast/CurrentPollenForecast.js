@@ -11,7 +11,6 @@ function CurrentPollenForecast() {
     const [searchResults, setSearchResults] = useState("")
     const [searchResultsMessage, setSearchResultsMessage] = useState("")
 
-
     function getCurrentPollenForecast() {
         fetch('http://dataservice.accuweather.com/forecasts/v1/daily/1day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&details=true')
             .then(response => response.json())

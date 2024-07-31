@@ -3,6 +3,7 @@ const { v4: uuidv4 } = require('uuid')
 
 function SearchResultCard({ searchResult }) {
 
+
     const filteredSearchResults = searchResult.AirAndPollen.filter(forecast => {
         return forecast.Name !== "UVIndex" && forecast.Name !== "AirQuality"
     })
