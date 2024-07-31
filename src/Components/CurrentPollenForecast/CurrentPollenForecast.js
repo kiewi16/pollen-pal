@@ -32,19 +32,20 @@ function CurrentPollenForecast() {
     }
 
     const currentPollenForecastCards = searchResults.length > 0 ?
-        searchResults.map(currentPollenForecast => (
-            <CurrentPollenForecastCard
-                key={uuidv4()}
-                currentPollenForecast={currentPollenForecast}
-            />
-        ))
-        :
-        currentPollenForecastData.map(currentPollenForecast => (
-            <CurrentPollenForecastCard
-                key={uuidv4()}
-                currentPollenForecast={currentPollenForecast}
-            />
-        ))
+    searchResults.map(currentPollenForecast => (
+        <CurrentPollenForecastCard
+            key={uuidv4()}
+            currentPollenForecast={currentPollenForecast}
+        />
+    ))
+    :
+    currentPollenForecastData.map(currentPollenForecast => (
+        <CurrentPollenForecastCard
+            key={uuidv4()}
+            currentPollenForecast={currentPollenForecast}
+        />
+    ))
+
 
     function handleSearchClick() {
         const currentPollenForecastSearchResults = currentPollenForecastData.filter(currentPollenForecast => {

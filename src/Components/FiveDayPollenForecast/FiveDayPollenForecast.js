@@ -2,18 +2,18 @@ import '../FiveDayPollenForecast/FiveDayPollenForecast.css'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import FiveDayPollenForecastCard from '../FiveDayPollenForecastCard/FiveDayPollenForecastCard'
+import SearchResultCard from '../SearchResultCard/SearchResultCard'
 const { v4: uuidv4 } = require('uuid')
 
 function FiveDayPollenForecast() {
     const [fiveDayPollenForecastData, setFiveDayPollenForecast] = useState([])
     const [errorMessage, setErrorMessage] = useState(null)
-    const [categorySearchValue, setCategorySearchValue] = useState("")
+    const [searchStatus, setSearchStatus] = useState(false)
+    const [matchingResults, setMatchingResults] = useState(false)
+    const [scaleSearchValue, setScaleSearchValue] = useState("")
     const [allergenSearchValue, setAllergenSearchValue] = useState("")
-    const [searchResults, setSearchResults] = useState("")
+    const [searchResults, setSearchResults] = useState([])
     const [searchResultsMessage, setSearchResultsMessage] = useState("")
-
-    console.log('searchResults:', searchResults)
-    console.log('fiveDayPollenForecastData:', fiveDayPollenForecastData)
 
     function getFiveDayPollenForecast() {
         fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
@@ -26,26 +26,18 @@ function FiveDayPollenForecast() {
         getFiveDayPollenForecast()
     }, [])
 
-    const fiveDayPollenForecastCards = searchResults.length > 0 ?
-        searchResults.map(fiveDayPollenForecast => {
-            <FiveDayPollenForecastCard
-                key={uuidv4()}
-                fiveDayPollenForecast={fiveDayPollenForecast}
-            />
-        })
-        :
-        fiveDayPollenForecastData.map(fiveDayPollenForecast => (
-            <FiveDayPollenForecastCard
-                key={uuidv4()}
-                fiveDayPollenForecast={fiveDayPollenForecast}
-            />
-        ))
+    const fiveDayPollenForecastCards = fiveDayPollenForecastData.map(fiveDayPollenForecast => (
+        <FiveDayPollenForecastCard
+            key={uuidv4()}
+            fiveDayPollenForecast={fiveDayPollenForecast}
+        />
+    ))
 
     function handleSearchClick() {
         let matchingResults = []
         fiveDayPollenForecastData.forEach(fiveDayPollenForecast => {
             fiveDayPollenForecast.AirAndPollen.forEach(pollenData => {
-                if (pollenData.Name === allergenSearchValue && pollenData.Category === categorySearchValue) {
+                if (pollenData.Name === allergenSearchValue && pollenData.Category === scaleSearchValue) {
                     matchingResults.push(fiveDayPollenForecast)
                 }
             })
@@ -53,16 +45,21 @@ function FiveDayPollenForecast() {
 
         if (matchingResults.length > 0) {
             setSearchResults(matchingResults)
+            setMatchingResults(true)
+            setSearchStatus(true)
             setSearchResultsMessage("")
         } else {
+            setSearchStatus(true)
+            setMatchingResults(false)
             setSearchResultsMessage("No Matches Returned")
         }
     }
 
     function handleClearSearchResults() {
-        setCategorySearchValue("")
         setAllergenSearchValue("")
-        setSearchResults("")
+        setScaleSearchValue("")
+        setSearchStatus(false)
+        setSearchResults([])
         setSearchResultsMessage("")
     }
 
@@ -80,7 +77,7 @@ function FiveDayPollenForecast() {
                     <option value="Ragweed">Ragweed</option>
                     <option value="Tree">Tree</option>
                 </select>
-                <select className="scale-level-drop-down" name="category" value={categorySearchValue} onChange={(event) => setCategorySearchValue(event.target.value)}>
+                <select className="scale-level-drop-down" name="scale-value" value={scaleSearchValue} onChange={(event) => setScaleSearchValue(event.target.value)}>
                     <option value="" disabled selected>select scale level</option>
                     <option value="Low">Low</option>
                     <option value="Moderate">Moderate</option>
@@ -90,10 +87,19 @@ function FiveDayPollenForecast() {
                 </select>
                 <button className="search-button" onClick={handleSearchClick}>SEARCH</button>
                 <button className="clear-search-results-button" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
-                {searchResultsMessage && <p className="search-results-error-message">{searchResultsMessage}</p>}
             </div>
             <div className="five-day-pollen-forecast-cards-wrapper">
-                {fiveDayPollenForecastCards}
+                {!searchStatus ? fiveDayPollenForecastCards : null}
+                {searchStatus && !matchingResults ? <p className="search-results-error-message">{searchResultsMessage}</p> : null}
+                {searchStatus && matchingResults ? searchResults.map(searchResult => {
+                        return (
+                            <SearchResultCard
+                                key={uuidv4()}
+                                searchResult={searchResult}
+                            />
+                        )
+                    }) : null
+                }
             </div>
             <p className="pollen-scale"><strong>Pollen/Mold Scale</strong></p>
             <p className="category-scale"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>
