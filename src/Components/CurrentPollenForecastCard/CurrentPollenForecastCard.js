@@ -18,8 +18,8 @@ function CurrentPollenForecastCard({ currentPollenForecast }) {
     return (
         <div className="current-pollen-forecast-card" style={cardStyle}>
             <h3>{Name}</h3>
-            <p>{Value}</p>
-            <p>{Category}</p>
+            <p className="value">{Value}</p>
+            <p className="category">{Category}</p>
         </div>
     )
 }
