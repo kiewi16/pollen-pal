@@ -12,6 +12,9 @@ function FiveDayPollenForecast() {
     const [searchResults, setSearchResults] = useState("")
     const [searchResultsMessage, setSearchResultsMessage] = useState("")
 
+    console.log('searchResults:', searchResults)
+    console.log('fiveDayPollenForecastData:', fiveDayPollenForecastData)
+
     function getFiveDayPollenForecast() {
         fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
             .then(response => response.json())
