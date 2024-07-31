@@ -70,14 +70,14 @@ function FiveDayPollenForecast() {
             {errorMessage && <p>{errorMessage}</p>}
             <div className="search-container">
                 <label>Search By Allergen & Pollen/Mold Scale Level:</label>
-                <select className="drop-down" name="date" value={allergenSearchValue} onChange={(event) => setAllergenSearchValue(event.target.value)}>
+                <select className="allergen-drop-down" name="allergen" value={allergenSearchValue} onChange={(event) => setAllergenSearchValue(event.target.value)}>
                     <option value="" disabled selected>select an allergen</option>
                     <option value="Grass">Grass</option>
                     <option value="Mold">Mold</option>
                     <option value="Ragweed">Ragweed</option>
                     <option value="Tree">Tree</option>
                 </select>
-                <select className="drop-down" name="date" value={categorySearchValue} onChange={(event) => setCategorySearchValue(event.target.value)}>
+                <select className="scale-level-drop-down" name="category" value={categorySearchValue} onChange={(event) => setCategorySearchValue(event.target.value)}>
                     <option value="" disabled selected>select scale level</option>
                     <option value="Low">Low</option>
                     <option value="Moderate">Moderate</option>
@@ -86,18 +86,18 @@ function FiveDayPollenForecast() {
                     <option value="Extreme">Extreme</option>
                 </select>
                 <button className="search-button" onClick={handleSearchClick}>SEARCH</button>
-                <button className="clear-search-results" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
+                <button className="clear-search-results-button" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
                 {searchResultsMessage && <p className="search-results-error-message">{searchResultsMessage}</p>}
             </div>
             <div className="five-day-pollen-forecast-cards-wrapper">
                 {fiveDayPollenForecastCards}
             </div>
             <p className="pollen-scale"><strong>Pollen/Mold Scale</strong></p>
-            <p className="low"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>
-            <p className="moderate"><strong>Moderate:</strong> risk of pollen or mold symptoms is moderate.</p>
-            <p className="high"><strong>High:</strong> risk of pollen or mold symptoms is high. Keep your windows closed.</p>
-            <p className="very-high"><strong>Very High:</strong> risk of pollen or mold symptoms is very high. Avoid outdoor activity in the early hours.</p>
-            <p className="extreme"><strong>Extreme:</strong> risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.</p>
+            <p className="category-scale"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>
+            <p className="category-scale"><strong>Moderate:</strong> risk of pollen or mold symptoms is moderate.</p>
+            <p className="category-scale"><strong>High:</strong> risk of pollen or mold symptoms is high. Keep your windows closed.</p>
+            <p className="category-scale"><strong>Very High:</strong> risk of pollen or mold symptoms is very high. Avoid outdoor activity in the early hours.</p>
+            <p className="category-scale"><strong>Extreme:</strong> risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.</p>
         </div>
     )
 }

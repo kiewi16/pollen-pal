@@ -41,7 +41,7 @@ describe('Current Pollen Forecast Page Tests', () => {
         cy.get('.current-pollen-forecast .category-scale').last().should('contain', 'Extreme: risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.')
     })
 
-    it('should select a category in the drop down and hit submit, returning any pollen forecasts that match the search criteria', () => {
+    it('should select a pollen/mold scale value in the drop down and hit submit, returning any pollen forecasts that match the search criteria', () => {
         cy.get('.drop-down').select('Low')
         cy.get('.search-button').click()
         cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card').should('have.length', 2)
@@ -61,7 +61,7 @@ describe('Current Pollen Forecast Page Tests', () => {
         cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card').should('have.length', 4)
     })
 
-    it('should select a category in the drop down and hit submit, returning a message if no pollen forecasts meet the search criteria', () => {
+    it('should select a pollen/mold scale level  in the drop down and hit submit, returning a message if no pollen forecasts meet the search criteria', () => {
         cy.get('.drop-down').select('Moderate')
         cy.get('.search-button').click()
         cy.get('.search-results-error-message').should('contain', 'No Matches Returned')    
