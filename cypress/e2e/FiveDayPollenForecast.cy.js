@@ -47,7 +47,7 @@ describe('5-Day Pollen Forecast Page Tests', () => {
         cy.get('.allergen-drop-down').select('Grass')
         cy.get('.scale-level-drop-down').select('High')
         cy.get('.search-button').click()
-        cy.get('.five-day-pollen-forecast > :nth-child(4)').should('contain', 'HERE ARE YOUR SEARCH RESULTS:')
+        cy.get('.five-day-pollen-forecast > :nth-child(5)').should('contain', 'HERE ARE YOUR SEARCH RESULTS:')
         cy.get('.five-day-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card').should('have.length', 5)
         cy.get('.five-day-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card h3').first().should('contain', '7/30/2024')
         cy.get('.five-day-pollen-forecast-cards-wrapper .search-result-forecast-card-p-element').first().should('contain', 'Grass: 110 (High)')
@@ -87,5 +87,10 @@ describe('5-Day Pollen Forecast Page Tests', () => {
     it('should navigate to the Current Pollen Forecast Page when the Current Pollen Forecast link is clicked', () => {
         cy.get('.current-pollen-forecast-link-in-five-day-pollen-forecast').click()
         cy.url().should('contain', '/CurrentPollenForecast')
+    })
+
+    it('should navigate to the Home Page when the Home Page button is clicked', () => {
+        cy.get('button > a').click()
+        cy.url().should('contain', '/')
     })
 })
