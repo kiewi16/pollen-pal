@@ -21,11 +21,11 @@ h2 {
 }
 
 .search-container {
-    margin: 10px; 
+    margin: 10px;
 }
 
 .allergen-drop-down,
-.scale-level-drop-down, 
+.scale-level-drop-down,
 .search-button,
 .clear-search-results-button {
     margin: 5px;
@@ -42,14 +42,17 @@ h2 {
 
 @media (max-width: 480px) {
     h2 {
-      font-size: 17px;
+        font-size: 17px;
     }
+
     .five-day-pollen-forecast-link-in-current-pollen-forecast {
         font-size: 15px;
     }
+
     label {
         font-size: 16px;
     }
+
     .five-day-pollen-forecast-cards-wrapper {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -57,27 +60,50 @@ h2 {
         margin-top: 12px;
         padding: 0 15px;
     }
+
     .pollen-scale {
         font-size: 20px;
     }
+
     .category-scale {
         font-size: 17px;
     }
+}
+
+@media (max-width: 430px) {
+    h2 {
+        font-size: 16px;
+    }
+
+    .current-pollen-forecast-link-in-five-day-pollen-forecast {
+        font-size: 16px;
+    }
+
+    label {
+        font-size: 13px
+    }
+
+    .pollen-scale {
+        font-size: 16px;
+    }
+
+    .category-scale {
+        font-size: 13px;
+    }    
 }
 
 @media (max-width: 394px) {
     h2 {
         font-size: 15px;
     }
+
     .current-pollen-forecast-link-in-five-day-pollen-forecast {
         font-size: 15px;
     }
+
     label {
         font-size: 12.5px
     }
-    /* .clear-search-results-button {
-        font-size: 12px;
-    } */
 
     .pollen-scale {
         font-size: 15px;
@@ -86,5 +112,4 @@ h2 {
     .category-scale {
         font-size: 12px;
     }
-
 }
