@@ -102,7 +102,7 @@ function CurrentPollenForecast() {
             <div className="current-pollen-forecast-cards-wrapper">
                 {currentPollenForecastCards}
             </div>
-            <p className="pollen-scale"><strong>Pollen/Mold Scale</strong></p>
+            <p className="pollen-scale-current-forecast"><strong>Pollen/Mold Scale</strong></p>
             <p className="category-scale"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>
             <p className="category-scale"><strong>Moderate:</strong> risk of pollen or mold symptoms is moderate.</p>
             <p className="category-scale"><strong>High:</strong> risk of pollen or mold symptoms is high. Keep your windows closed.</p>

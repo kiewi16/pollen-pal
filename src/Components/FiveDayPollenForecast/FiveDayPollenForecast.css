@@ -29,3 +29,42 @@
 .pollen-scale {
     font-size: 25px;
 }
+
+@media (max-width: 480px) {
+    h2 {
+      font-size: 20px;
+    }
+    .five-day-pollen-forecast-link-in-current-pollen-forecast {
+        font-size: 17px;
+    }
+    label {
+        font-size: 16px;
+    }
+    .pollen-scale-current-forecast {
+        font-size: 20px;
+    }
+    .category-scale {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 394px) {
+    h2 {
+        font-size: 15px;
+    }
+    .cuurent-pollen-forecast-link-in-five-day-pollen-forecast {
+        font-size: 15px;
+    }
+    label {
+        font-size: 12.5px
+    }
+
+    .pollen-scale-current-forecast {
+        font-size: 17px;
+    }
+
+    .category-scale {
+        font-size: 14px;
+    }
+
+}

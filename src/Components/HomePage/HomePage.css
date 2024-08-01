@@ -1,16 +1,40 @@
 .links-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;    
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
 }
 
 .current-pollen-forecast-link,
 .five-day-pollen-forecast-link {
-    font-size: 25px;
-    padding: 10px;
+  font-size: 25px;
+  padding: 10px;
 }
 
 p {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+
+  .current-pollen-forecast-link,
+  .five-day-pollen-forecast-link {
     font-size: 20px;
+  }
+
+  p {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .current-pollen-forecast-link,
+  .five-day-pollen-forecast-link {
+    font-size: 17px;
+  }
+
+  p {
+    font-size: 15px;
+  }
 }
