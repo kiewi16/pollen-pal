@@ -1,3 +1,13 @@
+h2 {
+    margin-top: 14px;
+}
+
+.home-page-button-container {
+    display: flex;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
 .current-pollen-forecast-cards-wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

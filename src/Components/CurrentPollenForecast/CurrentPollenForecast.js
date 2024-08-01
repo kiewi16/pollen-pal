@@ -28,7 +28,7 @@ function CurrentPollenForecast() {
                 if (!response.ok) {
                     throw new Error("We've encountered an unexpected error and were unable to get the current pollen forecast for Highlands Ranch, CO. Please try again later.")
                 }
-                return response.json()   
+                return response.json()
             })
             .then(data => filterCurrentPollenForecastData(data.DailyForecasts[0].AirAndPollen))
             .then(filteredData => setCurrentPollenForecast(filteredData))
@@ -47,19 +47,19 @@ function CurrentPollenForecast() {
     }
 
     const currentPollenForecastCards = searchResults.length > 0 ?
-    searchResults.map(currentPollenForecast => (
-        <CurrentPollenForecastCard
-            key={uuidv4()}
-            currentPollenForecast={currentPollenForecast}
-        />
-    ))
-    :
-    currentPollenForecastData.map(currentPollenForecast => (
-        <CurrentPollenForecastCard
-            key={uuidv4()}
-            currentPollenForecast={currentPollenForecast}
-        />
-    ))
+        searchResults.map(currentPollenForecast => (
+            <CurrentPollenForecastCard
+                key={uuidv4()}
+                currentPollenForecast={currentPollenForecast}
+            />
+        ))
+        :
+        currentPollenForecastData.map(currentPollenForecast => (
+            <CurrentPollenForecastCard
+                key={uuidv4()}
+                currentPollenForecast={currentPollenForecast}
+            />
+        ))
 
     function handleSearchClick() {
         const currentPollenForecastSearchResults = currentPollenForecastData.filter(currentPollenForecast => {
@@ -82,8 +82,13 @@ function CurrentPollenForecast() {
 
     return (
         <div className="current-pollen-forecast">
+            <div className="home-page-button-container">
+                <button classname='home-page-button'>
+                    <Link to="/" style={{ textDecoration: 'none' }}>Home Page</Link>
+                </button>
+            </div>
             <h2>Current Pollen Forecast for Highlands Ranch, Colorado</h2>
-            <Link to="/FiveDayPollenForecast" className="five-day-pollen-forecast-link-in-current-pollen-forecast">5-Day Pollen Forecast</Link>
+            <Link to="/FiveDayPollenForecast" className="five-day-pollen-forecast-link-in-current-pollen-forecast" style={{ textDecoration: 'none' }}>5-Day Pollen Forecast</Link>
             {errorMessage && <p className="error-message">We've encountered an unexpected error and were unable to get the current pollen forecast for Highlands Ranch, CO. Please try again later.</p>}
             <div className="search-container">
                 <label>Search By Pollen/Mold Scale Level:</label>
