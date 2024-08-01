@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 const { v4: uuidv4 } = require('uuid')
 
 function SearchResultCard({ searchResult }) {
-    console.log("searchResult:", searchResult)
-
 
     const filteredSearchResults = searchResult.AirAndPollen.filter(forecast => {
         return forecast.Name !== "UVIndex" && forecast.Name !== "AirQuality"
