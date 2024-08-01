@@ -3,3 +3,47 @@
     border: 3px solid black;
     padding: 10px;
 }
+
+@media (max-width: 480px) {
+    h3 {
+      font-size: 13px;
+    }
+  
+    .five-day-pollen-forecast-card-p-element {
+      font-size: 12.5px;
+    }
+  }
+  @media (max-width: 394px) {
+    .five-day-pollen-forecast-card {
+        box-sizing: border-box;
+        border: 2.5px solid black;
+        padding: 8px;
+    }
+   
+    h3 {
+      font-size: 11.5px;
+    }
+  
+    .five-day-pollen-forecast-card-p-element {
+      font-size: 11px;
+    }
+  }
+
+  @media (max-width: 370px) {
+    
+    h3 {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    p {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    .five-day-pollen-forecast-card {
+        box-sizing: border-box;
+        border: 2px solid black;
+        padding: 8px;
+    }
+  }
+  

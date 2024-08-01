@@ -13,3 +13,35 @@
 .accuweather {
     height: 50px;
 }
+
+@media (max-width: 394px) {
+    .footer {
+        height: 6.5rem;
+  }
+
+  p {
+    font-size: 14px;;
+  }
+
+  .accuweather {
+    height: 45px;
+  }
+}
+
+  @media(max-width: 370px) {
+    .footer {
+        height: 5.5rem
+    }
+
+    p {
+        font-size: 12.5px;
+    }
+
+    .accuweather {
+        height: 40px;
+    }
+
+    img {
+        height: 40px;
+    }
+}

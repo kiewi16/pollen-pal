@@ -35,7 +35,7 @@ describe('Current Pollen Forecast Page Tests', () => {
     })
 
     it('should see a mold/pollen chart with a title and five category descriptions', () => {
-        cy.get('.pollen-scale > strong').should('contain', 'Pollen/Mold Scale')
+        cy.get('.pollen-scale-current-forecast > strong').should('contain', 'Pollen/Mold Scale')
         cy.get('.current-pollen-forecast .category-scale').should('have.length', 5)
         cy.get('.current-pollen-forecast .category-scale').first().should('contain', 'Low: risk of pollen or mold symptoms is low.')
         cy.get('.current-pollen-forecast .category-scale').last().should('contain', 'Extreme: risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.')
@@ -44,32 +44,33 @@ describe('Current Pollen Forecast Page Tests', () => {
     it('should select a pollen/mold scale value in the drop down and hit submit, returning any pollen forecasts that match the search criteria', () => {
         cy.get('.drop-down').select('Low')
         cy.get('.search-button').click()
-        cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card').should('have.length', 2)
-        cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card h3').first().should('contain', 'Mold')
-        cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card .value').first().should('contain', '0')
-        cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card .category').first().should('contain', 'Low')
-        cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card h3').last().should('contain', 'Tree')
-        cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card .value').last().should('contain', '0')
-        cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card .category').last().should('contain', 'Low')       
+        cy.get('.current-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card-2').should('have.length', 2)
+        cy.get('.current-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card-2 h3').first().should('contain', 'Mold')
+        cy.get('.current-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card-2 .value').first().should('contain', '0')
+        cy.get('.current-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card-2 .category').first().should('contain', 'Low')
+        cy.get('.current-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card-2 h3').last().should('contain', 'Tree')
+        cy.get('.current-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card-2 .category').last().should('contain', 'Low')       
     })
 
     it('should clear the search results when the clear search button is clicked and display four current pollen cards', () => {
         cy.get('.drop-down').select('Low')
         cy.get('.search-button').click()
-        cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card').should('have.length', 2)
+        cy.get('.current-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card-2').should('have.length', 2)
         cy.get('.clear-search-results-button').click()    
-        cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card').should('have.length', 4)
+        cy.get('.current-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card-2').should('have.length', 0)
     })
 
-    it('should select a pollen/mold scale level  in the drop down and hit submit, returning a message if no pollen forecasts meet the search criteria', () => {
+    it('should select a pollen/mold scale level in the drop down and hit submit, returning a message if no pollen forecasts meet the search criteria', () => {
         cy.get('.drop-down').select('Moderate')
         cy.get('.search-button').click()
+        cy.get('.current-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card-2').should('have.length', 0)
         cy.get('.search-results-error-message').should('contain', 'No Matches Returned')    
     })
 
     it('should clear the No Matches Returned message when the clear search results button is clicked', () => {
         cy.get('.drop-down').select('Moderate')
         cy.get('.search-button').click()
+        cy.get('.current-pollen-forecast-cards-wrapper .current-pollen-forecast-card').should('have.length', 0)
         cy.get('.search-results-error-message').should('contain', 'No Matches Returned')    
         cy.get('.clear-search-results-button').click()
         cy.get('.search-results-error-message').should('not.exist') 
@@ -79,5 +80,10 @@ describe('Current Pollen Forecast Page Tests', () => {
     it('should navigate to the 5-Day Pollen Forecast Page when the 5-Day Pollen Forecast link is clicked', () => {
         cy.get('.five-day-pollen-forecast-link-in-current-pollen-forecast').click()
         cy.url().should('contain', '/FiveDayPollenForecast')
+    })
+
+    it('should navigate to the Home Page when the Home Page button is clicked', () => {
+        cy.get('button > a').click()
+        cy.url().should('contain', '/')
     })
 })

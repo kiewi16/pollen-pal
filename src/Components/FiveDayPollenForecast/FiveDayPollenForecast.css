@@ -1,3 +1,13 @@
+h2 {
+    margin-top: 14px;
+}
+
+.home-page-button-container {
+    display: flex;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
 .five-day-pollen-forecast-cards-wrapper {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -32,15 +42,22 @@
 
 @media (max-width: 480px) {
     h2 {
-      font-size: 20px;
+      font-size: 17px;
     }
     .five-day-pollen-forecast-link-in-current-pollen-forecast {
-        font-size: 17px;
+        font-size: 15px;
     }
     label {
         font-size: 16px;
     }
-    .pollen-scale-current-forecast {
+    .five-day-pollen-forecast-cards-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 12px;
+        padding: 0 15px;
+    }
+    .pollen-scale {
         font-size: 20px;
     }
     .category-scale {
@@ -52,19 +69,22 @@
     h2 {
         font-size: 15px;
     }
-    .cuurent-pollen-forecast-link-in-five-day-pollen-forecast {
+    .current-pollen-forecast-link-in-five-day-pollen-forecast {
         font-size: 15px;
     }
     label {
         font-size: 12.5px
     }
+    /* .clear-search-results-button {
+        font-size: 12px;
+    } */
 
-    .pollen-scale-current-forecast {
-        font-size: 17px;
+    .pollen-scale {
+        font-size: 15px;
     }
 
     .category-scale {
-        font-size: 14px;
+        font-size: 12px;
     }
 
 }
