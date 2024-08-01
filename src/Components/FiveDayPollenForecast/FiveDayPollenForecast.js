@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import FiveDayPollenForecastCard from '../FiveDayPollenForecastCard/FiveDayPollenForecastCard'
 import SearchResultCard from '../SearchResultCard/SearchResultCard'
-import PropTypes from 'prop-types'
 const { v4: uuidv4 } = require('uuid')
 
 function FiveDayPollenForecast() {
@@ -134,15 +133,3 @@ function FiveDayPollenForecast() {
 }
 
 export default FiveDayPollenForecast
-
-FiveDayPollenForecastCard.propTypes = {
-    Date: PropTypes.string.isRequired,
-    AirAndPollen: PropTypes.arrayOf(
-        PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Value: PropTypes.number.isRequired,
-            Category: PropTypes.string.isRequired,
-            CategoryValue: PropTypes.number,
-        })
-    ).isRequired
-}
