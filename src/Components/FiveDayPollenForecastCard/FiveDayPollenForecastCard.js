@@ -1,4 +1,5 @@
 import '../FiveDayPollenForecastCard/FiveDayPollenForecastCard.css'
+import PropTypes from 'prop-types'
 const { v4: uuidv4 } = require('uuid')
 
 function FiveDayPollenForecastCard({ fiveDayPollenForecast }) {
@@ -20,3 +21,16 @@ function FiveDayPollenForecastCard({ fiveDayPollenForecast }) {
 }
 
 export default FiveDayPollenForecastCard
+
+FiveDayPollenForecastCard.propTypes = {
+    fiveDayPollenForecast: PropTypes.shape({      
+        AirAndPollen: PropTypes.arrayOf(
+            PropTypes.shape({
+                Name: PropTypes.string.isRequired,
+                Value: PropTypes.number.isRequired,
+                Category: PropTypes.string.isRequired,
+            })
+        ).isRequired,
+        Date: PropTypes.string.isRequired,
+    })
+}

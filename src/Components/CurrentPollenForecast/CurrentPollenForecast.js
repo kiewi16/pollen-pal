@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import CurrentPollenForecastCard from '../CurrentPollenForecastCard/CurrentPollenForecastCard'
 import SearchResultCard2 from '../SearchResultCard2/SerachResultCard2'
+import PropTypes from 'prop-types'
 const { v4: uuidv4 } = require('uuid')
 
 function CurrentPollenForecast() {
@@ -91,7 +92,7 @@ function CurrentPollenForecast() {
     return (
         <div className="current-pollen-forecast">
             <div className="home-page-button-container">
-                <button classname='home-page-button'>
+                <button className='home-page-button'>
                     <Link to="/" style={{ textDecoration: 'none' }}>Home Page</Link>
                 </button>
             </div>

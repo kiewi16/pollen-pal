@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 
 function SearchResultCard2({ searchResult }) {
     const { Name, Value, Category, } = searchResult
@@ -23,3 +24,11 @@ function SearchResultCard2({ searchResult }) {
 }
 
 export default SearchResultCard2
+
+SearchResultCard2.propTypes = {
+    searchResult: PropTypes.shape({
+        Name: PropTypes.string.isRequired,
+        Value: PropTypes.number.isRequired,  
+        Category: PropTypes.string.isRequired, 
+    }).isRequired,
+}

@@ -1,7 +1,9 @@
 import './SearchResultCard.css'
+import PropTypes from 'prop-types'
 const { v4: uuidv4 } = require('uuid')
 
 function SearchResultCard({ searchResult }) {
+    console.log("searchResult:", searchResult)
 
 
     const filteredSearchResults = searchResult.AirAndPollen.filter(forecast => {
@@ -21,3 +23,16 @@ function SearchResultCard({ searchResult }) {
 }
 
 export default SearchResultCard
+
+SearchResultCard.propTypes = {
+    searchResult: PropTypes.shape({
+        AirAndPollen: PropTypes.arrayOf(
+            PropTypes.shape({
+                Name: PropTypes.string.isRequired,
+                Value: PropTypes.number.isRequired,
+                Category: PropTypes.string.isRequired,
+            })
+        ).isRequired,
+        Date: PropTypes.string.isRequired,
+    })
+}

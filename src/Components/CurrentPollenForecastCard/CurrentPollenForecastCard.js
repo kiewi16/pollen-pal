@@ -1,9 +1,9 @@
 import '../CurrentPollenForecastCard/CurrentPollenForecastCard.css'
+import PropTypes from 'prop-types'
 
 function CurrentPollenForecastCard({ currentPollenForecast }) {
     const { Name, Value, Category, } = currentPollenForecast
 
-    
     const gradientStyles = {
         Low: 'linear-gradient(to bottom, white, rgb(144, 238, 144)',
         Moderate: 'linear-gradient(to bottom, #FFFFE0, #FFD700',
@@ -25,3 +25,11 @@ function CurrentPollenForecastCard({ currentPollenForecast }) {
 }
 
 export default CurrentPollenForecastCard
+
+CurrentPollenForecastCard.propTypes = {
+    currentPollenForecast: PropTypes.shape({
+        Name: PropTypes.string.isRequired,
+        Value: PropTypes.number.isRequired,
+        Category: PropTypes.string.isRequired,
+    }).isRequired,
+}
