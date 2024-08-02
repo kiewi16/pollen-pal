@@ -85,10 +85,10 @@ function CurrentPollenForecast() {
                 </button>
             </div>
             <h2>Current Pollen Forecast for Highlands Ranch, Colorado</h2>
-            <Link to="/FiveDayPollenForecast" className="five-day-pollen-forecast-link-in-current-pollen-forecast" style={{ textDecoration: 'none' }}>5-Day Pollen Forecast</Link>
+            <Link to="/FiveDayPollenForecast" className="five-day-pollen-forecast-link-in-current-pollen-forecast" style={{ textDecoration: 'none', color: 'black' }}> Go to 5-Day Pollen Forecast</Link>
             {errorMessage && <p className="error-message">We've encountered an unexpected error and were unable to get the current pollen forecast for Highlands Ranch, CO. Please try again later.</p>}
             <div className="search-container">
-                <label>Search By Pollen/Mold Scale Level:</label>
+                <label><strong>Search By Pollen/Mold Scale Level:</strong></label>
                 <select className="drop-down" name="date" value={searchValue} onChange={(event) => setSearchValue(event.target.value)}>
                     <option value="" disabled selected>select scale level</option>
                     <option value="Low">Low</option>

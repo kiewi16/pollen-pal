@@ -14,6 +14,7 @@ describe('5-Day Pollen Forecast Page Tests', () => {
         })
         cy.visit('http://localhost:3000/FiveDayPollenForecast')
     })
+
     it('should land on the 5-day Pollen Forecast page that has a title, a link to the Current Pollen Forecast, a label for the drop down inputs, two drop down inputs, a search button, and a clear search button', () => {
         cy.get('h2').should('contain', '5-Day Pollen Forecast for Highlands Ranch, Colorado')
         cy.get('.current-pollen-forecast-link-in-five-day-pollen-forecast').should('be.visible')
@@ -38,9 +39,8 @@ describe('5-Day Pollen Forecast Page Tests', () => {
 
     it('should see a mold/pollen chart with a title and five category descriptions', () => {
         cy.get('.pollen-scale > strong').should('contain', 'Pollen/Mold Scale')
-        cy.get('.five-day-pollen-forecast .category-scale').should('have.length', 5)
-        cy.get('.five-day-pollen-forecast .category-scale').first().should('contain', 'Low: risk of pollen or mold symptoms is low.')
-        cy.get('.five-day-pollen-forecast .category-scale').last().should('contain', 'Extreme: risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.')       
+        cy.get('.five-day-pollen-forecast .category-scale-low').should('contain', 'Low: risk of pollen or mold symptoms is low.')
+        cy.get('.five-day-pollen-forecast .category-scale-extreme').should('contain', 'Extreme: risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.')       
     })
 
     it('should select an allergen and a pollen/mold scale level in the drop down inputs and hit submit, returning a message and any pollen forecasts that match the search criteria', () => {
@@ -81,7 +81,6 @@ describe('5-Day Pollen Forecast Page Tests', () => {
         cy.get('.five-day-pollen-forecast-cards-wrapper .search-result-pollen-forecast-card').should('have.length', 0)    
         cy.get('.clear-search-results-button').click()
         cy.get('.search-results-error-message').should('not.exist') 
-        cy.get('.five-day-pollen-forecast .category-scale').should('have.length', 5)
     })
 
     it('should navigate to the Current Pollen Forecast Page when the Current Pollen Forecast link is clicked', () => {

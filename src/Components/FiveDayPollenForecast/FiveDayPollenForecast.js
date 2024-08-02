@@ -76,7 +76,7 @@ function FiveDayPollenForecast() {
                 </button>            
             </div>
             <h2>5-Day Pollen Forecast for Highlands Ranch, Colorado</h2>
-            <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link-in-five-day-pollen-forecast" style={{ textDecoration: 'none' }}>Current Pollen Forecast</Link>
+            <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link-in-five-day-pollen-forecast" style={{ textDecoration: 'none', color: 'black' }}>Go to Current Pollen Forecast</Link>
             {errorMessage && <p className="error-message">We've encountered an unexpected error and were unable to get the 5-day pollen forecast for Highlands Ranch, CO. Please try again later.</p>}
             <div className="search-container">
                 <label><strong>Search By Allergen & Pollen/Mold Scale Level:</strong></label>
