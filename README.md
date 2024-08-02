@@ -4,7 +4,7 @@ Pollen Pal is a React application that allows users to see the current pollen fo
 ## Features
 - Search for pollen forecasts by mold/pollen scale value on the Current Pollen Forecast page
 - Search for pollen forecasts by allergen and mold/pollen scale value on the 5-Day Pollen Forecast page
-- Interpret pollen forecasts using the easy-to-read mold/pollen scale descriptions available on each page or by clicking the question mark under Data Explanation in the footer. 
+- Interpret pollen forecasts using the easy-to-read mold/pollen scale descriptions available on each page or by clicking the question mark under Data Explanation in the page footer. 
 - Responsive design across various devices and screen sizes 
 
 ## Technologies Used
@@ -18,13 +18,13 @@ Pollen Pal is a React application that allows users to see the current pollen fo
 - PropTypes 
 
 ## Installation Instructions
-1. Clone the repository: `git clone`
+1. Clone the repository: `git clone https://github.com/kiewi16/pollen-pal.git`
 2. `cd` into the dirctory 
 3. Install dependencies by running `npm install`
 4. Start the development server by running `npm start`
 
-### Cypress Testing (application must be running) 
-1. Run `npm install cypress --save-dev into your terminal`
+#### Cypress Testing (application must be running) 
+1. Run `npm install cypress --save-dev`
 2. Run `npx cypress open`
 4. Click E2E testing
 5. Click Start E2E Testing in Chrome
@@ -40,9 +40,13 @@ Pollen Pal is a React application that allows users to see the current pollen fo
 - Implement functionality to search for pollen forecasts by location 
 
 ## Preview
+### Current Pollen Forecast
+![Screen Recording 2024-08-02 at 11 55 26 AM](https://github.com/user-attachments/assets/e9a130f5-8288-4822-9909-78485cf32cd8)
+
+### 5-Day Pollen Forecast
+![Screen Recording 2024-08-02 at 12 00 47 PM](https://github.com/user-attachments/assets/0913e916-8965-4623-84f8-4df1783f7310)
 
 ## Screenshots
-
 ### Home Page
 <img width="1438" alt="Screenshot 2024-08-02 at 11 42 38 AM" src="https://github.com/user-attachments/assets/69904dee-2d97-4cd1-b270-f62de5293fb5">
 
@@ -53,3 +57,4 @@ Pollen Pal is a React application that allows users to see the current pollen fo
 <img width="1437" alt="Screenshot 2024-08-02 at 11 45 31 AM" src="https://github.com/user-attachments/assets/95d72c4d-72e7-42be-9564-89f7266f045a">
 
 ### Responsive Design on Mobile Phone
+![Screenshot 2024-08-02 at 12 05 43 PM](https://github.com/user-attachments/assets/44e09622-13c1-4669-b6c0-572d9c584d15)
