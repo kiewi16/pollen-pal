@@ -1,6 +1,7 @@
 import accuweather from '../../Images/accuweather-icon.jpg'
 import github from '../../Images/github-icon.png'
 import linkedin from '../../Images/linkedin-icon.png'
+import questionmark from '../../Images/question-mark.png'
 import '../Footer/Footer.css'
 
 function Footer() {
@@ -25,6 +26,9 @@ function Footer() {
             </div>
             <div className="data-explaination-section">
                 <p className="data-explaination">Data Explanation</p>
+                <a href="http://developer.accuweather.com/daily-index-categories-and-level-values">
+                    <img className="question-mark" src={questionmark} alt="question-mark"/>
+                </a>
             </div>
         </footer>
     )

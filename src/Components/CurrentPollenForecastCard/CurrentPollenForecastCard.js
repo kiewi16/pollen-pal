@@ -6,9 +6,9 @@ function CurrentPollenForecastCard({ currentPollenForecast }) {
 
     const gradientStyles = {
         Low: 'linear-gradient(to bottom, white, rgb(144, 238, 144)',
-        Moderate: 'linear-gradient(to bottom, #FFFFE0, #FFD700',
-        High: 'linear-gradient(to bottom, #FFD1DC, #FF4500)',
-        VeryHigh: 'linear-gradient(to bottom, #FFD1DC, #FF6347, #FF4500, #9b2226)',
+        Moderate: 'linear-gradient(to bottom, #FFFFE0, #FFD700)',
+        High: 'linear-gradient(to bottom, #FFFDF5, #ED8F03)',
+        VeryHigh: 'linear-gradient(to bottom, #FFD1DC, #FF4500)',
         Extreme: 'linear-gradient(to bottom, #f44336, #9b2226)'
     }
 

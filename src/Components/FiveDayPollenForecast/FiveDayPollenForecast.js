@@ -15,16 +15,6 @@ function FiveDayPollenForecast() {
     const [searchResults, setSearchResults] = useState([])
     const [searchResultsMessage, setSearchResultsMessage] = useState("")
 
-    // function getFiveDayPollenForecast() {
-    //     fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
-    //         .then(response => response.json())
-    //         .then(data => setFiveDayPollenForecast(data.DailyForecasts))
-    //         .catch(error => {
-    //             console.error("Error fetching data", error)
-    //             setErrorMessage("We've encountered an unexpected error and were unable to get the pollen forecast for Highlands Ranch, CO. Please try again later.")
-    //         })
-    // }
-
     function getFiveDayPollenForecast() {
         fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
             .then(response => {
@@ -82,11 +72,11 @@ function FiveDayPollenForecast() {
         <div className="five-day-pollen-forecast">
             <div className="home-page-button-container">
                 <button className='home-page-button'>
-                    <Link to="/" style={{ textDecoration: 'none' }}>Home Page</Link>
+                    <Link to="/" style={{ textDecoration: 'none', color: 'black'}}>Home Page</Link>
                 </button>            
             </div>
             <h2>5-Day Pollen Forecast for Highlands Ranch, Colorado</h2>
-            <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link-in-five-day-pollen-forecast" style={{ textDecoration: 'none' }}>Current Pollen Forecast</Link>
+            <Link to="/CurrentPollenForecast" className="current-pollen-forecast-link-in-five-day-pollen-forecast" style={{ textDecoration: 'none', color: 'black' }}>Go to Current Pollen Forecast</Link>
             {errorMessage && <p className="error-message">We've encountered an unexpected error and were unable to get the 5-day pollen forecast for Highlands Ranch, CO. Please try again later.</p>}
             <div className="search-container">
                 <label><strong>Search By Allergen & Pollen/Mold Scale Level:</strong></label>
@@ -123,11 +113,11 @@ function FiveDayPollenForecast() {
                 }
             </div>
             <p className="pollen-scale"><strong>Pollen/Mold Scale</strong></p>
-            <p className="category-scale"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>
-            <p className="category-scale"><strong>Moderate:</strong> risk of pollen or mold symptoms is moderate.</p>
-            <p className="category-scale"><strong>High:</strong> risk of pollen or mold symptoms is high. Keep your windows closed.</p>
-            <p className="category-scale"><strong>Very High:</strong> risk of pollen or mold symptoms is very high. Avoid outdoor activity in the early hours.</p>
-            <p className="category-scale"><strong>Extreme:</strong> risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.</p>
+            <p className="category-scale-low"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>
+            <p className="category-scale-moderate"><strong>Moderate:</strong> risk of pollen or mold symptoms is moderate.</p>
+            <p className="category-scale-high"><strong>High:</strong> risk of pollen or mold symptoms is high. Keep your windows closed.</p>
+            <p className="category-scale-very-high"><strong>Very High:</strong> risk of pollen or mold symptoms is very high. Avoid outdoor activity in the early hours.</p>
+            <p className="category-scale-extreme"><strong>Extreme:</strong> risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.</p>
         </div>
     )
 }

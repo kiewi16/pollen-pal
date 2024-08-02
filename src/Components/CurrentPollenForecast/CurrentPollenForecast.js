@@ -2,8 +2,7 @@ import '../CurrentPollenForecast/CurrentPollenForecast.css'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import CurrentPollenForecastCard from '../CurrentPollenForecastCard/CurrentPollenForecastCard'
-import SearchResultCard2 from '../SearchResultCard2/SerachResultCard2'
-import PropTypes from 'prop-types'
+import SearchResultCardCurrentForecast from '../SearchResultCurrentForecast/SearchResultCardCurrentForecast'
 const { v4: uuidv4 } = require('uuid')
 
 function CurrentPollenForecast() {
@@ -14,17 +13,6 @@ function CurrentPollenForecast() {
     const [searchValue, setSearchValue] = useState("")
     const [searchResults, setSearchResults] = useState([])
     const [searchResultsMessage, setSearchResultsMessage] = useState("")
-
-    // function getCurrentPollenForecast() {
-    //     fetch('http://dataservice.accuweather.com/forecasts/v1/daily/1day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&details=true')
-    //         .then(response => response.json())
-    //         .then(data => filterCurrentPollenForecastData(data.DailyForecasts[0].AirAndPollen))
-    //         .then(filteredData => setCurrentPollenForecast(filteredData))
-    //         .catch(error => {
-    //             console.error("Error fetching data", error)
-    //             setErrorMessage("We've encountered an unexpected error and were unable to get the current pollen forecast for Highlands Ranch, CO. Please try again later.")
-    //         })
-    // }
 
     function getCurrentPollenForecast() {
         fetch('http://dataservice.accuweather.com/forecasts/v1/daily/1day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&details=true')
@@ -92,15 +80,15 @@ function CurrentPollenForecast() {
     return (
         <div className="current-pollen-forecast">
             <div className="home-page-button-container">
-                <button className='home-page-button'>
-                    <Link to="/" style={{ textDecoration: 'none' }}>Home Page</Link>
+                <button className="home-page-button">
+                    <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>Home Page</Link>
                 </button>
             </div>
             <h2>Current Pollen Forecast for Highlands Ranch, Colorado</h2>
-            <Link to="/FiveDayPollenForecast" className="five-day-pollen-forecast-link-in-current-pollen-forecast" style={{ textDecoration: 'none' }}>5-Day Pollen Forecast</Link>
+            <Link to="/FiveDayPollenForecast" className="five-day-pollen-forecast-link-in-current-pollen-forecast" style={{ textDecoration: 'none', color: 'black' }}> Go to 5-Day Pollen Forecast</Link>
             {errorMessage && <p className="error-message">We've encountered an unexpected error and were unable to get the current pollen forecast for Highlands Ranch, CO. Please try again later.</p>}
             <div className="search-container">
-                <label>Search By Pollen/Mold Scale Level:</label>
+                <label><strong>Search By Pollen/Mold Scale Level:</strong></label>
                 <select className="drop-down" name="date" value={searchValue} onChange={(event) => setSearchValue(event.target.value)}>
                     <option value="" disabled selected>select scale level</option>
                     <option value="Low">Low</option>
@@ -113,12 +101,12 @@ function CurrentPollenForecast() {
                 <button className="clear-search-results-button" onClick={handleClearSearchResults}>CLEAR SEARCH RESULTS</button>
             </div>
             {searchStatus && !matchingResults ? <p className="search-results-error-message">{searchResultsMessage}</p> : null} 
-            {searchStatus && matchingResults ? <h3> HERE ARE YOUR SEARCH RESULTS:</h3> : null}
+            {searchStatus && matchingResults ? <h3>HERE ARE YOUR SEARCH RESULTS:</h3> : null}
             <div className="current-pollen-forecast-cards-wrapper">
                 {!searchStatus ? currentPollenForecastCards : null}
                 {searchStatus && matchingResults ? searchResults.map(searchResult => {
                         return (
-                            <SearchResultCard2
+                            <SearchResultCardCurrentForecast
                                 key={uuidv4()}
                                 searchResult={searchResult}
                             />
@@ -127,11 +115,11 @@ function CurrentPollenForecast() {
                 }
             </div>
             <p className="pollen-scale-current-forecast"><strong>Pollen/Mold Scale</strong></p>
-            <p className="category-scale"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>
-            <p className="category-scale"><strong>Moderate:</strong> risk of pollen or mold symptoms is moderate.</p>
-            <p className="category-scale"><strong>High:</strong> risk of pollen or mold symptoms is high. Keep your windows closed.</p>
-            <p className="category-scale"><strong>Very High:</strong> risk of pollen or mold symptoms is very high. Avoid outdoor activity in the early hours.</p>
-            <p className="category-scale"><strong>Extreme:</strong> risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.</p>
+            <p className="category-scale-low"><strong>Low:</strong> risk of pollen or mold symptoms is low.</p>
+            <p className="category-scale-moderate"><strong>Moderate:</strong> risk of pollen or mold symptoms is moderate.</p>
+            <p className="category-scale-high"><strong>High:</strong> risk of pollen or mold symptoms is high. Keep your windows closed.</p>
+            <p className="category-scale-very-high"><strong>Very High:</strong> risk of pollen or mold symptoms is very high. Avoid outdoor activity in the early hours.</p>
+            <p className="category-scale-extreme"><strong>Extreme:</strong> risk of pollen or mold symptoms is extremely high. Avoid outdoor activity.</p>
         </div>
     )
 }
