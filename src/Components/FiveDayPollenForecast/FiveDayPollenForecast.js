@@ -81,7 +81,7 @@ function FiveDayPollenForecast() {
     return (
         <div className="five-day-pollen-forecast">
             <div className="home-page-button-container">
-                <button classname='home-page-button'>
+                <button className='home-page-button'>
                     <Link to="/" style={{ textDecoration: 'none' }}>Home Page</Link>
                 </button>            
             </div>
