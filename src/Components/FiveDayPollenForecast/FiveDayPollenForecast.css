@@ -46,7 +46,7 @@ h2 {
 .clear-search-results-button {
     margin: 5px;
     padding: 7px;
-    font-size: 11px;
+    font-size: 11.5px;
     border-radius: 5px;
     background-color: lightgray;
 }
@@ -65,20 +65,28 @@ h2 {
 }
 
 .pollen-scale {
-    font-size: 25px;
+    font-size: 24px;
+}
+
+.category-scale-low,
+.category-scale-moderate,
+.category-scale-high,
+.category-scale-very-high,
+.category-scale-extreme{
+    font-size: 18.5px;
 }
 
 @media (max-width: 480px) {
     h2 {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     .five-day-pollen-forecast-link-in-current-pollen-forecast {
-        font-size: 15px;
+        font-size: 14.5px;
     }
 
     label {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .five-day-pollen-forecast-cards-wrapper {
@@ -90,21 +98,34 @@ h2 {
     }
 
     .pollen-scale {
-        font-size: 20px;
+        font-size: 18px;
     }
 
-    .category-scale {
-        font-size: 17px;
+    .category-scale-low,
+    .category-scale-moderate,
+    .category-scale-high,
+    .category-scale-very-high,
+    .category-scale-extreme{
+        font-size: 16px;
+    }
+
+    .category-scale-low::after,
+    .category-scale-moderate::after,
+    .category-scale-high::after,
+    .category-scale-very-high::after,
+    .category-scale-extreme::after {
+        width: 19px;
+        height: 19px;
     }
 }
 
 @media (max-width: 430px) {
     h2 {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .current-pollen-forecast-link-in-five-day-pollen-forecast {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     label {
@@ -115,18 +136,31 @@ h2 {
         font-size: 16px;
     }
 
-    .category-scale {
+    .category-scale-low,
+    .category-scale-moderate,
+    .category-scale-high,
+    .category-scale-very-high,
+    .category-scale-extreme{
         font-size: 13px;
-    }    
+    }
+
+    .category-scale-low::after,
+    .category-scale-moderate::after,
+    .category-scale-high::after,
+    .category-scale-very-high::after,
+    .category-scale-extreme::after {
+        width: 16px;
+        height: 16px;
+    } 
 }
 
 @media (max-width: 394px) {
     h2 {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .current-pollen-forecast-link-in-five-day-pollen-forecast {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     label {
@@ -134,10 +168,58 @@ h2 {
     }
 
     .pollen-scale {
-        font-size: 15px;
+        font-size: 12.5px;
     }
 
-    .category-scale {
-        font-size: 12px;
+    .category-scale-low,
+    .category-scale-moderate,
+    .category-scale-high,
+    .category-scale-very-high,
+    .category-scale-extreme {
+        font-size: 11px;
+    }
+
+    .category-scale-low::after,
+    .category-scale-moderate::after,
+    .category-scale-high::after,
+    .category-scale-very-high::after,
+    .category-scale-extreme::after {
+        width: 14px;
+        height: 14px;
+    }
+
+    @media (max-width: 370px) {
+        h2 {
+            font-size: 14.5px;
+        }
+    
+        .current-pollen-forecast-link-in-five-day-pollen-forecast {
+            font-size: 15px;
+        }
+    
+        label {
+            font-size: 12px
+        }
+    
+        .pollen-scale {
+            font-size: 15px;
+        }
+    
+        .category-scale-low,
+        .category-scale-moderate,
+        .category-scale-high,
+        .category-scale-very-high,
+        .category-scale-extreme {
+            font-size: 11.5px;
+        }
+    
+        .category-scale-low::after,
+        .category-scale-moderate::after,
+        .category-scale-high::after,
+        .category-scale-very-high::after,
+        .category-scale-extreme::after {
+            width: 15px;
+            height: 15px;
+        }
     }
 }

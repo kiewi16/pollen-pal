@@ -5,6 +5,15 @@
 }
 
 @media (max-width: 480px) {
+  .search-button,
+  .clear-search-results-button {
+      margin: 5px;
+      padding: 6px;
+      font-size: 11x;
+      border-radius: 5px;
+      background-color: lightgray;
+  }
+  
   h3 {
     font-size: 13px;
   }
@@ -15,12 +24,23 @@
 }
 
 @media (max-width: 430px) {
+  .search-button,
+  .clear-search-results-button {
+      margin: 5px;
+      padding: 5px;
+      font-size: 10x;
+      border-radius: 5px;
+      background-color: lightgray;
+  }
+ 
   h3 {
     font-size: 12px;
   }
 
   .five-day-pollen-forecast-card-p-element {
     font-size: 11.5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 
   .five-day-pollen-forecast-card {
@@ -31,12 +51,24 @@
 }
 
 @media (max-width: 394px) {
+  .search-button,
+  .clear-search-results-button {
+      margin: 4px;
+      padding: 5px;
+      font-size: 9.5px;
+      border-radius: 5px;
+      background-color: lightgray;
+  }
+
   h3 {
-    font-size: 11.5px;
+    font-size: 11px;
+    margin: 5px;
   }
 
   .five-day-pollen-forecast-card-p-element {
     font-size: 11px;
+    margin-top: 7px;
+    margin-bottom: 7px;
   }
 
   .five-day-pollen-forecast-card {
@@ -47,19 +79,29 @@
 }
 
 @media (max-width: 370px) {
+  .search-button,
+  .clear-search-results-button {
+      margin: 4px;
+      padding: 5px;
+      font-size: 9.5px;
+      border-radius: 5px;
+      background-color: lightgray;
+  }
+ 
   h3 {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    font-size: 10.5px;
+    margin: 4px
   }
 
   .five-day-pollen-forecast-card-p-element {
-    margin-top: 8px;
-    margin-bottom: 8px;
+    font-size: 11px;
+    margin-top: 6px;
+    margin-bottom: 6px;  
   }
 
   .five-day-pollen-forecast-card {
     box-sizing: border-box;
     border: 2px solid black;
-    padding: 8px;
+    padding: 6px;
   }
 }

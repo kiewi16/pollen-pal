@@ -16,14 +16,11 @@ function SearchResultCardCurrentForecast({ searchResult }) {
     const cardStyle = gradientStyle ? { background: gradientStyle } : {}
 
     return (
-        <div className="search-result-pollen-forecast-card-current-forecast-container">
-            <div className="search-result-pollen-forecast-card-current-forecast" style={cardStyle}>
-                <h3>{Name}</h3>
-                <p className="value">{Value}</p>
-                <p className="category">{Category}</p>
-            </div>
+        <div className="search-result-pollen-forecast-card-current-forecast" style={cardStyle}>
+            <h3>{Name}</h3>
+            <p className="value">{Value}</p>
+            <p className="category">{Category}</p>
         </div>
-
     )
 }
 

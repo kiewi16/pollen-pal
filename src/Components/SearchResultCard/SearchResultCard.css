@@ -1,5 +1,64 @@
 .search-result-pollen-forecast-card {
     box-sizing: border-box;
-    border: 5px solid green;
-    padding: 10px;
+    border: 4px solid green;
+    padding: 5px;
 }
+
+.search-result-forecast-card-p-element {
+    font-size: 17px;
+}
+@media (max-width: 480px) {   
+    h3 {
+      font-size: 13px;
+    }
+  
+    .search-result-forecast-card-p-element {
+      font-size: 12.5px;
+    }
+  }
+  
+  @media (max-width: 430px) {
+    h3 {
+      font-size: 12px;
+    }
+  
+    .search-result-forecast-card-p-element {
+      font-size: 11.5px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+  
+    .search-result-pollen-forecast-card {
+      box-sizing: border-box;
+      border: 2.5px solid green;
+      padding: 8.5px;
+    }
+  }
+  
+  @media (max-width: 394px) {
+    .search-result-forecast-card-p-element {
+      font-size: 11px;
+      margin-top: 7px;
+      margin-bottom: 7px;
+    }
+  
+    .search-result-pollen-forecast-card {
+      box-sizing: border-box;
+      border: 2.5px solid green;
+      padding: 8px;
+    }
+  }
+  
+  @media (max-width: 370px) {
+    .search-result-forecast-card-p-element{
+      font-size: 10.5px;
+      margin-top: 5px;
+      margin-bottom: 5px;  
+    }
+  
+    .search-result-pollen-forecast-card  {
+      box-sizing: border-box;
+      border: 2px solid green;
+      padding: 6px;
+    }
+  }
