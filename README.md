@@ -24,12 +24,13 @@ Pollen Pal is a React application that allows users to see the current pollen fo
 4. Start the development server by running `npm start`
 
 #### Cypress Testing (application must be running) 
-1. Run `npm install cypress --save-dev`
+1. Install dependencies by running `npm install cypress --save-dev`
 2. Run `npx cypress open`
 4. Click E2E testing
 5. Click Start E2E Testing in Chrome
 
 ## Deployed Project
+https://pollen-pal.vercel.app/
 
 ## Wins
 - Seamless integration with two endpoints from the AccuWeather API
