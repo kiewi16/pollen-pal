@@ -16,7 +16,7 @@ function FiveDayPollenForecast() {
     const [searchResultsMessage, setSearchResultsMessage] = useState("")
 
     function getFiveDayPollenForecast() {
-        fetch('http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
+        fetch('https://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false')
             .then(response => {
                 if(!response.ok) {
                     throw new Error("We've encountered an unexpected error and were unable to get the pollen forecast for Highlands Ranch, CO. Please try again later.")

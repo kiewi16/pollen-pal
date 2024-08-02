@@ -1,13 +1,13 @@
 describe('Home Page Tests', () => {
   beforeEach(() => {
     cy.fixture('currentpollenforecast').then((currentpollenforecast) => {
-      cy.intercept('GET', 'http://dataservice.accuweather.com/forecasts/v1/daily/1day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&details=true', {
+      cy.intercept('GET', 'https://dataservice.accuweather.com/forecasts/v1/daily/1day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&details=true', {
         statusCode: 200,
         body: currentpollenforecast
       })
     })
     cy.fixture('fivedaypollenforecast').then((fivedaypollenforecast) => {
-      cy.intercept('GET', 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false', {
+      cy.intercept('GET', 'https://dataservice.accuweather.com/forecasts/v1/daily/5day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&language=en-us&details=true&metric=false', {
         statusCode: 200,
         body: fivedaypollenforecast
       })

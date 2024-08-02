@@ -15,7 +15,7 @@ function CurrentPollenForecast() {
     const [searchResultsMessage, setSearchResultsMessage] = useState("")
 
     function getCurrentPollenForecast() {
-        fetch('http://dataservice.accuweather.com/forecasts/v1/daily/1day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&details=true')
+        fetch('https://dataservice.accuweather.com/forecasts/v1/daily/1day/337466?apikey=RlGJ3tQAAtATkTkWTQvIt9Mhy7FG2RS1&details=true')
             .then(response => {
                 if (!response.ok) {
                     throw new Error("We've encountered an unexpected error and were unable to get the current pollen forecast for Highlands Ranch, CO. Please try again later.")
