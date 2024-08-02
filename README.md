@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# Pollen Pal
+Pollen Pal is a React application that allows users to see the current pollen forecast and the 5-day pollen forecast for Highlands Ranch, CO. Users can search by allergen and mold/pollen scale value to see if any forecasts meet their search criteria. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+- Search for pollen forecasts by mold/pollen scale value on the Current Pollen Forecast page
+- Search for pollen forecasts by allergen and mold/pollen scale value on the 5-Day Pollen Forecast page
+- Interpret pollen forecasts using the easy-to-read mold/pollen scale descriptions available on each page or by clicking the question mark under Data Explanation in the footer. 
+- Responsive design across various devices and screen sizes 
 
-## Available Scripts
+## Technologies Used
+- React
+- React Router
+- JavaScript
+- Cypress
+- HTML
+- CSS
+- Fetch API
+- PropTypes 
 
-In the project directory, you can run:
+## Installation Instructions
+1. Clone the repository: `git clone`
+2. `cd` into the dirctory 
+3. Install dependencies by running `npm install`
+4. Start the development server by running `npm start`
 
-### `npm start`
+### Cypress Testing (application must be running) 
+1. Run `npm install cypress --save-dev into your terminal`
+2. Run `npx cypress open`
+4. Click E2E testing
+5. Click Start E2E Testing in Chrome
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Deployed Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Wins
+- Seamless integration with two endpoints from the AccuWeather API
+- Thorough E2E testing of user interactions using Cypress
+- Implemented responsive design so the application can be used on on mobile, tablet, and desktop devices 
 
-### `npm test`
+## Future Enhancements 
+- Implement functionality to search for pollen forecasts by location 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Preview
 
-### `npm run build`
+## Screenshots
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Home Page
+<img width="1438" alt="Screenshot 2024-08-02 at 11 42 38 AM" src="https://github.com/user-attachments/assets/69904dee-2d97-4cd1-b270-f62de5293fb5">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Current Pollen Forecast
+<img width="1435" alt="Screenshot 2024-08-02 at 11 44 12 AM" src="https://github.com/user-attachments/assets/48f7bc05-e476-4456-b6b4-c972fa1ca6c8">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 5-Day Pollen Forecast
+<img width="1437" alt="Screenshot 2024-08-02 at 11 45 31 AM" src="https://github.com/user-attachments/assets/95d72c4d-72e7-42be-9564-89f7266f045a">
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Responsive Design on Mobile Phone
