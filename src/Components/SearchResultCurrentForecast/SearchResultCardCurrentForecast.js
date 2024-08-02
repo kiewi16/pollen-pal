@@ -1,8 +1,8 @@
-import '../CurrentPollenForecastCard/CurrentPollenForecastCard.css'
+import '../SearchResultCurrentForecast/SearchResultCardCurrentForecast.css'
 import PropTypes from 'prop-types'
 
-function CurrentPollenForecastCard({ currentPollenForecast }) {
-    const { Name, Value, Category, } = currentPollenForecast
+function SearchResultCardCurrentForecast({ searchResult }) {
+    const { Name, Value, Category, } = searchResult
 
     const gradientStyles = {
         Low: 'linear-gradient(to bottom, white, rgb(144, 238, 144)',
@@ -16,18 +16,21 @@ function CurrentPollenForecastCard({ currentPollenForecast }) {
     const cardStyle = gradientStyle ? { background: gradientStyle } : {}
 
     return (
-        <div className="current-pollen-forecast-card" style={cardStyle}>
-            <h3>{Name}</h3>
-            <p className="value">{Value}</p>
-            <p className="category">{Category}</p>
+        <div className="search-result-pollen-forecast-card-current-forecast-container">
+            <div className="search-result-pollen-forecast-card-current-forecast" style={cardStyle}>
+                <h3>{Name}</h3>
+                <p className="value">{Value}</p>
+                <p className="category">{Category}</p>
+            </div>
         </div>
+
     )
 }
 
-export default CurrentPollenForecastCard
+export default SearchResultCardCurrentForecast
 
-CurrentPollenForecastCard.propTypes = {
-    currentPollenForecast: PropTypes.shape({
+SearchResultCardCurrentForecast.propTypes = {
+    searchResult: PropTypes.shape({
         Name: PropTypes.string.isRequired,
         Value: PropTypes.number.isRequired,
         Category: PropTypes.string.isRequired,

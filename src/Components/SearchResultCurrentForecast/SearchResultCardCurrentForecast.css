@@ -1,0 +1,14 @@
+.search-result-pollen-forecast-card-current-forecast-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+    padding: 0 15px;
+}
+
+.search-result-pollen-forecast-card-current-forecast {
+    box-sizing: border-box;
+    border: 3px solid black;
+    padding: 10px;
+}
+ 

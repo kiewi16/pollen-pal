@@ -8,6 +8,14 @@ h2 {
     margin-left: 5px;
 }
 
+.home-page-button {
+    padding: 7px;
+    color: black;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: lightgray;
+}  
+
 .current-pollen-forecast-cards-wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -39,6 +47,60 @@ h2 {
     font-size: 25px;
 }
 
+.category-scale-low::after {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    vertical-align: middle;
+    border: 2px solid black;
+    background: linear-gradient(to bottom, white, rgb(144, 238, 144));
+  }
+
+  .category-scale-moderate::after {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    vertical-align: middle;
+    border: 2px solid black;
+    background: linear-gradient(to bottom, #FFFFE0, #FFD700);
+  }
+
+  .category-scale-high::after {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    vertical-align: middle;
+    border: 2px solid black;
+    background: linear-gradient(to bottom, #FFFDF5, #ED8F03);
+  }
+
+  .category-scale-very-high::after {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    vertical-align: middle;
+    border: 2px solid black;
+    background: linear-gradient(to bottom, #FFD1DC, #FF4500);
+  }
+
+  .category-scale-extreme::after {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    vertical-align: middle;
+    border: 2px solid black;
+    background: linear-gradient(to bottom, #f44336, #9b2226);
+  }
 
 @media (max-width: 480px) {
     h2 {
